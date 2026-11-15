@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ספר איוב · הכנה למבחן</title>
-<meta name="description" content="מסלול חזרה בן 60 דקות על ספר איוב לפי דפי המורה: פסוקים מרכזיים, טענות הדמויות, פרשנים ושאלות תרגול.">
+<meta name="description" content="ספר איוב בשאלות ותשובות, לפי דפי העבודה של המורה.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f6f2ea; --paper:#fffdf8; --ink:#27221d; --muted:#6d6459; --line:#e6ddcf;
   --accent:#2f4858; --accent-soft:#e3eaee; --gold:#a8742a; --gold-soft:#f7ecd9;
-  --teacher:#7a3b5c; --teacher-soft:#f4e6ee; --ok:#3d7a4f; --ok-soft:#e2f0e5;
+  --teacher:#7a3b5c; --teacher-soft:#f4e6ee; --ok:#3d7a4f; --ok-soft:#e2f0e5; --warn:#b4532a; --warn-soft:#f8e6dc;
   --shadow:0 1px 2px rgba(60,40,20,.06),0 4px 18px rgba(60,40,20,.05);
   --serif:"Frank Ruhl Libre","David","Times New Roman",serif;
   --sans:"Assistant","Segoe UI","Arial Hebrew",Arial,sans-serif;
@@ -22,711 +22,369 @@
   :root:not([data-theme="light"]){
     --bg:#171614; --paper:#211f1c; --ink:#ece5da; --muted:#a59b8e; --line:#36322c;
     --accent:#9fc0d3; --accent-soft:#25313a; --gold:#e0b26a; --gold-soft:#332818;
-    --teacher:#e3a3c4; --teacher-soft:#36232e; --ok:#86c79a; --ok-soft:#1f3326;
+    --teacher:#e3a3c4; --teacher-soft:#36232e; --ok:#86c79a; --ok-soft:#1f3326; --warn:#f0a07a; --warn-soft:#3a251b;
     --shadow:0 1px 2px rgba(0,0,0,.3); color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#171614; --paper:#211f1c; --ink:#ece5da; --muted:#a59b8e; --line:#36322c;
   --accent:#9fc0d3; --accent-soft:#25313a; --gold:#e0b26a; --gold-soft:#332818;
-  --teacher:#e3a3c4; --teacher-soft:#36232e; --ok:#86c79a; --ok-soft:#1f3326;
+  --teacher:#e3a3c4; --teacher-soft:#36232e; --ok:#86c79a; --ok-soft:#1f3326; --warn:#f0a07a; --warn-soft:#3a251b;
   --shadow:0 1px 2px rgba(0,0,0,.3); color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.75;-webkit-text-size-adjust:100%}
-a{color:var(--accent)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.7;-webkit-text-size-adjust:100%}
 strong{font-weight:700}
+button{font:inherit;color:inherit}
 
-/* ---------- top bar ---------- */
-.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .topbar-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 16px}
 .brand{font-family:var(--serif);font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink);white-space:nowrap}
 .progress{flex:1;display:flex;align-items:center;gap:10px;min-width:0}
-.pbar{flex:1;height:6px;background:var(--line);border-radius:6px;overflow:hidden;max-width:260px}
-.pbar i{display:block;height:100%;width:0;background:var(--ok);border-radius:6px;transition:width .4s}
+.pbar{flex:1;height:6px;background:var(--line);border-radius:6px;overflow:hidden;max-width:240px}
+.pbar i{display:block;height:100%;width:0;background:var(--ok);transition:width .4s}
 .pcount{font-size:.85rem;color:var(--muted);white-space:nowrap}
-.timer-chip{display:none;font-size:.85rem;font-weight:700;background:var(--gold-soft);color:var(--gold);border-radius:20px;padding:3px 12px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.timer-chip.on{display:inline-block}
-.iconbtn{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:5px 11px;cursor:pointer;white-space:nowrap}
+.iconbtn{font-size:.88rem;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:5px 11px;cursor:pointer;white-space:nowrap}
 .iconbtn:hover{border-color:var(--accent)}
+.iconbtn[aria-pressed="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent)}
 .only-mobile{display:none}
 
-/* ---------- layout ---------- */
-.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:250px minmax(0,1fr);gap:36px;padding:0 16px}
-aside.side{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding:22px 0 30px;scrollbar-width:thin}
-main{min-width:0;max-width:780px;padding-bottom:80px}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:36px;padding:0 16px}
+aside.side{position:sticky;top:62px;align-self:start;max-height:calc(100vh - 76px);overflow:auto;padding:22px 0 30px}
+main{min-width:0;max-width:760px;padding-bottom:90px}
 
-/* ---------- TOC ---------- */
-.toc{list-style:none;margin:0;padding:0;font-size:.92rem}
-.toc-part{margin:16px 0 4px}
-.toc-part:first-child{margin-top:0}
-.toc-part a{font-weight:800;color:var(--muted);text-decoration:none;font-size:.8rem;letter-spacing:.02em}
-.toc-ch a{display:flex;align-items:baseline;gap:8px;padding:4px 10px;border-radius:8px;text-decoration:none;color:var(--ink);border-inline-start:3px solid transparent}
-.toc-ch a:hover{background:var(--accent-soft)}
-.toc-ch a.current{background:var(--accent-soft);border-inline-start-color:var(--accent);font-weight:700}
-.tnum{font-family:var(--serif);font-weight:700;color:var(--accent);min-width:2.2em}
-.tlabel{flex:1;line-height:1.35}
-.tick{color:var(--ok);font-weight:800;visibility:hidden}
-.toc-ch a.is-done .tick{visibility:visible}
-.toc-ch a.is-done .tlabel{color:var(--muted)}
+.toc{list-style:none;margin:0;padding:0}
+.toc a{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:baseline;padding:7px 10px;border-radius:10px;text-decoration:none;color:var(--ink);border-inline-start:3px solid transparent}
+.toc a:hover{background:var(--accent-soft)}
+.toc a.current{background:var(--accent-soft);border-inline-start-color:var(--accent)}
+.tch{grid-column:1/3;font-size:.75rem;font-weight:800;color:var(--gold)}
+.tt{grid-column:1/3;font-weight:700;line-height:1.3}
+.tc{grid-row:1/3;grid-column:3;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;align-self:center}
+.tc.full{color:var(--ok);font-weight:800}
 
-/* ---------- hero ---------- */
-.hero{padding:44px 0 10px}
-.eyebrow{font-size:.85rem;font-weight:700;color:var(--gold);letter-spacing:.04em}
-.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1.05;margin:.15em 0 .2em}
-.hero .lead{font-size:1.08rem;color:var(--ink);max-width:68ch}
-.core{margin:28px 0;padding:24px 26px;background:var(--paper);border-radius:16px;box-shadow:var(--shadow);border-inline-start:5px solid var(--accent)}
-.core .k{font-size:.8rem;font-weight:800;color:var(--accent);letter-spacing:.04em}
-.core p{margin:.3em 0 0;font-family:var(--serif);font-size:1.28rem;line-height:1.6}
+.hero{padding:40px 0 6px}
+.eyebrow{font-size:.85rem;font-weight:700;color:var(--gold)}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.5rem,7vw,4rem);line-height:1.05;margin:.1em 0 .25em}
+.hero p{margin:0;color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
 
-.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:18px 0;box-shadow:var(--shadow)}
-.card h2{font-family:var(--serif);font-size:1.25rem;margin:0 0 6px}
-.card p{margin:.4em 0}
-.small{font-size:.9rem;color:var(--muted)}
+.part{margin-top:48px}
+.part-head{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
+.chips{font-size:.8rem;font-weight:800;color:var(--gold)}
+.part-head h2{font-family:var(--serif);font-weight:900;font-size:2rem;line-height:1.15;margin:0}
+.intro{background:var(--paper);border:1px solid var(--line);border-inline-start:4px solid var(--accent);border-radius:14px;padding:14px 20px;box-shadow:var(--shadow)}
+.intro p{margin:.35em 0}
 
-/* ---------- time plan ---------- */
-.timebar{display:flex;gap:4px;margin:12px 0 8px;direction:rtl}
-.seg{position:relative;overflow:hidden;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 2px;border-radius:9px;background:var(--accent-soft);color:var(--accent);text-decoration:none;line-height:1.2;transition:transform .15s}
-.seg:hover{transform:translateY(-2px)}
-.seg::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:var(--fill,0%);background:color-mix(in srgb,var(--gold) 28%,transparent);transition:width 1s linear}
-.seg.active{outline:2px solid var(--gold);color:var(--ink)}
-.seg.past{background:var(--ok-soft);color:var(--ok)}
-.seg-l{position:relative;font-weight:700;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.seg-m{position:relative;font-size:.75rem;opacity:.8}
-.timer-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
-.btn{font:inherit;font-weight:700;font-size:.95rem;border:0;border-radius:10px;padding:8px 18px;cursor:pointer;background:var(--accent);color:var(--paper)}
-.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
-.timer-status{font-size:.92rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.qs{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+.qcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow)}
+.qcard.known{border-color:color-mix(in srgb,var(--ok) 45%,var(--line))}
+.qcard.again{border-color:color-mix(in srgb,var(--warn) 45%,var(--line))}
+.qtext{display:flex;gap:12px;font-weight:700;line-height:1.55}
+.qn{font-family:var(--serif);font-weight:900;color:var(--accent);min-width:1.3em;font-size:1.1rem;line-height:1.4}
+.qcard.known .qn::after{content:" ✓";color:var(--ok)}
+.badge{display:inline-block;font-size:.72rem;font-weight:800;background:var(--teacher-soft);color:var(--teacher);border-radius:6px;padding:0 7px;margin-inline-end:8px;vertical-align:2px}
+.reveal{margin:10px 0 0;margin-inline-start:calc(1.3em + 12px);cursor:pointer;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);background:transparent;color:var(--accent);font-weight:700;font-size:.88rem;border-radius:8px;padding:3px 14px}
+.reveal:hover{background:var(--accent-soft)}
+.ans{margin-top:10px;margin-inline-start:calc(1.3em + 12px)}
+.atext{background:var(--bg);border-radius:10px;padding:10px 14px;border-inline-start:3px solid var(--ok)}
+.mark{display:flex;gap:8px;margin-top:8px}
+.mark button{cursor:pointer;font-size:.82rem;font-weight:700;border-radius:20px;padding:2px 12px;border:1px solid var(--line);background:transparent;color:var(--muted)}
+.qcard.known .knew{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.qcard.again .again{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+body.show-all .reveal{display:none}
+body.hide-known .qcard.known{display:none}
 
-/* ---------- parts & chapters ---------- */
-.part{margin-top:56px}
-.part-title{font-family:var(--serif);font-weight:900;font-size:1.9rem;margin:0 0 6px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.part-no{font-family:var(--sans);font-size:.8rem;font-weight:800;color:var(--paper);background:var(--gold);padding:2px 10px;border-radius:20px;letter-spacing:.03em;transform:translateY(-4px)}
-.part > p,.part > .callout{max-width:72ch}
-.chapter{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:6px 26px 18px;margin:20px 0;box-shadow:var(--shadow)}
-.ch-head{display:flex;align-items:center;gap:14px;padding:16px 0 8px;border-bottom:1px solid var(--line);margin-bottom:10px}
-.ch-num{font-family:var(--serif);font-weight:900;font-size:2rem;line-height:1;color:var(--accent);min-width:1.6em;text-align:center}
-.ch-head h3{flex:1;font-family:var(--serif);font-size:1.45rem;font-weight:700;margin:0;line-height:1.3}
-.done{display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--muted);cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:20px;padding:3px 12px 3px 10px;white-space:nowrap}
-.done input{accent-color:var(--ok);width:16px;height:16px;margin:0}
-.chapter.is-done{border-color:color-mix(in srgb,var(--ok) 45%,var(--line))}
-.chapter.is-done .done{background:var(--ok-soft);color:var(--ok);border-color:transparent}
-
-h4.sub{font-size:1.02rem;font-weight:800;margin:22px 0 8px;color:var(--ink);display:flex;flex-wrap:wrap;align-items:center;gap:8px;line-height:1.45}
-h4.sub.teacher{color:var(--teacher)}
-.badge{font-size:.72rem;font-weight:800;background:var(--teacher-soft);color:var(--teacher);border-radius:6px;padding:1px 8px}
-
-/* verse cards */
-ul.verses{list-style:none;margin:6px 0 14px;padding:0;display:grid;gap:10px}
-.verse{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:color-mix(in srgb,var(--paper) 70%,var(--bg))}
-.vref{font-size:.8rem;font-weight:800;color:var(--gold)}
-.vq{margin:2px 0 4px;font-family:var(--serif);font-size:1.22rem;line-height:1.65;font-weight:500}
-.vexp{font-size:.97rem}
-
-.callout{display:flex;gap:12px;border-radius:12px;padding:12px 16px;margin:14px 0}
-.callout p{margin:0}
-.callout.exam{background:var(--gold-soft);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent)}
-.callout.exam .ico{color:var(--gold);font-size:1.2rem;line-height:1.5}
-.callout.note{background:var(--accent-soft)}
-ol{padding-inline-start:24px} ol li{margin:.35em 0}
-
-/* deep dive */
-details.deep{margin:16px 0 6px;border-radius:12px;border:1px dashed color-mix(in srgb,var(--accent) 40%,var(--line))}
-details.deep > summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:10px 16px;font-weight:800;color:var(--accent)}
-details.deep > summary::-webkit-details-marker{display:none}
-details.deep > summary::before{content:"＋";margin-inline-end:8px;font-weight:400}
-details.deep[open] > summary::before{content:"－"}
-details.deep > summary > span:first-child{flex:1}
-.hint{font-size:.8rem;font-weight:400;color:var(--muted)}
-details.deep[open] .hint{visibility:hidden}
-.deep-body{padding:0 16px 10px}
-
-/* Q&A */
-.qa{background:var(--accent-soft);border-radius:12px;padding:12px 16px;margin:12px 0}
-.q .tag,.tag{display:inline-block;font-size:.75rem;font-weight:800;background:var(--accent);color:var(--paper);border-radius:6px;padding:0 8px;margin-inline-end:8px}
-details.reveal{margin-top:8px}
-details.reveal summary{cursor:pointer;font-size:.88rem;font-weight:700;color:var(--accent);list-style:none;display:inline-block;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:8px;padding:2px 12px}
-details.reveal summary::-webkit-details-marker{display:none}
-details.reveal[open] summary{display:none}
-.a{background:var(--paper);border-radius:10px;padding:10px 14px;border-inline-start:3px solid var(--ok)}
-
-/* table */
-.table-wrap{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
-table{border-collapse:collapse;width:100%;min-width:520px;font-size:.95rem}
-th,td{padding:10px 12px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
-th{background:var(--accent-soft);color:var(--accent);font-weight:800}
-tr:last-child td{border-bottom:0}
-
-/* self-check */
-.selfcheck ol{list-style:none;padding:0;counter-reset:q}
-.selfcheck ol li{counter-increment:q}
-.chk{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer}
-.chk::before{content:counter(q);font-family:var(--serif);font-weight:900;color:var(--accent);font-size:1.2rem;min-width:1.2em}
-.chk input{order:2;margin-top:6px;accent-color:var(--ok);width:18px;height:18px;flex:none}
-.chk span{flex:1}
-.chk:has(input:checked){background:var(--ok-soft);border-color:transparent}
-.chk:has(input:checked) span{color:var(--muted)}
-
-ul.links{list-style:none;padding:0;display:grid;gap:6px}
-ul.links a{display:block;padding:8px 14px;background:var(--paper);border:1px solid var(--line);border-radius:10px;text-decoration:none}
-ul.links a:hover{border-color:var(--accent)}
-ul.links a::after{content:" ↗";color:var(--muted)}
+.quiz{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:16px}
+.qz{display:flex;flex-direction:column;gap:6px;text-align:right;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.qz-v{font-family:var(--serif);font-size:1.15rem;font-weight:700;line-height:1.45}
+.qz-a{font-size:.9rem;color:var(--muted);visibility:hidden}
+.qz.open{border-color:var(--accent)}
+.qz.open .qz-a{visibility:visible}
+.qz.open .qz-a strong{color:var(--accent)}
 footer{color:var(--muted);font-size:.85rem;text-align:center;padding:30px 0 50px}
 
-/* ---------- mobile ---------- */
 @media (max-width:900px){
   body{font-size:17px}
   .layout{grid-template-columns:minmax(0,1fr);gap:0}
-  aside.side{position:fixed;inset-block:0;inset-inline-start:0;top:0;width:min(84vw,320px);max-height:none;height:100%;background:var(--paper);z-index:60;padding:20px 16px;box-shadow:0 0 40px rgba(0,0,0,.25);transform:translateX(105%);transition:transform .25s}
+  aside.side{position:fixed;top:0;inset-inline-start:0;width:min(84vw,320px);max-height:none;height:100%;background:var(--paper);z-index:60;padding:20px 14px;box-shadow:0 0 40px rgba(0,0,0,.25);transform:translateX(105%);transition:transform .25s}
   body.toc-open aside.side{transform:none}
   .scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:55;display:none}
   body.toc-open .scrim{display:block}
   .only-mobile{display:inline-block}
-  .chapter{padding:4px 16px 14px;border-radius:14px}
-  .ch-head{flex-wrap:wrap;gap:10px}
-  .ch-num{font-size:1.6rem}
-  .ch-head h3{font-size:1.25rem;min-width:60%}
   .pbar{display:none}
-  .seg-m{display:none}
-  .seg{padding:8px 1px}
-  .seg-l{font-size:.7rem}
-  .hero{padding-top:26px}
-  .brand{font-size:1rem}
+  .qcard{padding:12px 14px}
+  .reveal,.ans{margin-inline-start:0}
+  .part-head h2{font-size:1.6rem}
 }
-@media (max-width:420px){ .hide-xs{display:none} }
 @media print{
-  .topbar,aside.side,.timer-row,.done,.scrim{display:none!important}
-  .layout{display:block}
-  body{background:#fff;font-size:12pt}
-  .chapter,.card,.core{box-shadow:none;break-inside:avoid-page}
-  details.reveal summary{display:none}
+  .topbar,aside.side,.tools,.reveal,.mark,.scrim{display:none!important}
+  .layout{display:block} .ans{display:block!important} .qz-a{visibility:visible}
+  body{background:#fff;font-size:12pt} .qcard,.intro{box-shadow:none;break-inside:avoid}
 }
 </style>
 </head>
 <body>
 <div class="topbar"><div class="topbar-in">
-  <button class="iconbtn only-mobile" id="tocBtn" aria-label="תוכן העניינים">☰ פרקים</button>
+  <button class="iconbtn only-mobile" id="tocBtn" type="button">☰ חלקים</button>
   <a class="brand" href="#top">ספר איוב</a>
-  <div class="progress"><div class="pbar"><i id="pfill"></i></div><span class="pcount" id="pcount">0/15 פרקים</span></div>
-  <span class="timer-chip" id="timerChip"></span>
-  <button class="iconbtn hide-xs" id="expandBtn">פתיחת כל ההעמקות</button>
-  <button class="iconbtn" id="themeBtn" aria-label="החלפת מצב בהיר/כהה" title="בהיר/כהה"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  <div class="progress"><div class="pbar"><i id="pfill"></i></div><span class="pcount" id="pcount">0/112 ידעתי</span></div>
+  <button class="iconbtn" id="themeBtn" type="button" aria-label="החלפת מצב בהיר/כהה" title="בהיר/כהה"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
 </div></div>
 <div class="scrim" id="scrim"></div>
 
 <div class="layout" id="top">
-<aside class="side" id="side" aria-label="תוכן העניינים">
+<aside class="side" aria-label="חלקים">
 <ol class="toc">
-<li class="toc-part"><a href="#s1">חלק א׳ · הניסיון והקינה</a></li>
-<li class="toc-ch"><a href="#s2" data-toc="s2"><span class="tnum">א׳</span><span class="tlabel">ניסיונו הראשון של איוב</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s3" data-toc="s3"><span class="tnum">ב׳</span><span class="tlabel">הניסיון הגופני</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s4" data-toc="s4"><span class="tnum">ג׳</span><span class="tlabel">קינת איוב</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-part"><a href="#s5">חלק ב׳ · אליפז ותשובת איוב</a></li>
-<li class="toc-ch"><a href="#s6" data-toc="s6"><span class="tnum">ד׳</span><span class="tlabel">אליפז על הגמול</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s7" data-toc="s7"><span class="tnum">ה׳</span><span class="tlabel">אליפז על ייסורים כמוסר</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s8" data-toc="s8"><span class="tnum">ו׳</span><span class="tlabel">תגובת איוב לסבל ולרעים</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s9" data-toc="s9"><span class="tnum">ז׳</span><span class="tlabel">חולשת האדם מול ה׳</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-part"><a href="#s10">חלק ג׳ · בלדד ותשובת איוב</a></li>
-<li class="toc-ch"><a href="#s11" data-toc="s11"><span class="tnum">ח׳</span><span class="tlabel">בלדד על הצדק המוחלט</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s12" data-toc="s12"><span class="tnum">ט׳</span><span class="tlabel">גדולת ה׳ ושאלת המשפט</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-part"><a href="#s13">חלק ד׳ · נאומי אליהוא</a></li>
-<li class="toc-ch"><a href="#s14" data-toc="s14"><span class="tnum">ל״ב</span><span class="tlabel">אליהוא מבקר את שני הצדדים</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s15" data-toc="s15"><span class="tnum">ל״ג</span><span class="tlabel">ייסורים כאזהרה</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s16" data-toc="s16"><span class="tnum">ל״ד</span><span class="tlabel">אליהוא מגן על צדקת ה׳</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-ch"><a href="#s17" data-toc="s17"><span class="tnum">ל״ה</span><span class="tlabel">אליהוא מבקש מאיוב להמתין לצדק ה׳</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-part"><a href="#s18">חלק ה׳ · מענה ה׳ לאיוב</a></li>
-<li class="toc-ch"><a href="#s19" data-toc="s19"><span class="tnum">ל״ח</span><span class="tlabel">תשובת ה׳ מן הסערה</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-part"><a href="#s20">חלק ו׳ · סיום הספר</a></li>
-<li class="toc-ch"><a href="#s21" data-toc="s21"><span class="tnum">מ״ב</span><span class="tlabel">התגלות ה׳ והנחמה</span><span class="tick" aria-hidden="true">✓</span></a></li>
-<li class="toc-part"><a href="#s22">בדיקה עצמית קצרה לפי שאלות המורה</a></li>
-<li class="toc-part"><a href="#s23">מקורות להמשך לימוד</a></li>
+<li><a href="#big" data-toc="big"><span class="tch">כל הספר</span><span class="tt">התמונה הגדולה</span><span class="tc" data-count="big"></span></a></li>
+<li><a href="#ch1" data-toc="ch1"><span class="tch">פרקים א׳–ב׳</span><span class="tt">הניסיון</span><span class="tc" data-count="ch1"></span></a></li>
+<li><a href="#ch3" data-toc="ch3"><span class="tch">פרק ג׳</span><span class="tt">קינת איוב</span><span class="tc" data-count="ch3"></span></a></li>
+<li><a href="#ch45" data-toc="ch45"><span class="tch">פרקים ד׳–ה׳</span><span class="tt">אליפז</span><span class="tc" data-count="ch45"></span></a></li>
+<li><a href="#ch67" data-toc="ch67"><span class="tch">פרקים ו׳–ז׳</span><span class="tt">תשובת איוב לאליפז</span><span class="tc" data-count="ch67"></span></a></li>
+<li><a href="#ch89" data-toc="ch89"><span class="tch">פרקים ח׳–ט׳</span><span class="tt">בלדד ותשובת איוב</span><span class="tc" data-count="ch89"></span></a></li>
+<li><a href="#elihu" data-toc="elihu"><span class="tch">פרקים ל״ב–ל״ה</span><span class="tt">אליהוא</span><span class="tc" data-count="elihu"></span></a></li>
+<li><a href="#ch38" data-toc="ch38"><span class="tch">פרקים ל״ח–מ׳</span><span class="tt">ה׳ עונה לאיוב</span><span class="tc" data-count="ch38"></span></a></li>
+<li><a href="#ch42" data-toc="ch42"><span class="tch">פרק מ״ב</span><span class="tt">סוף הספר</span><span class="tc" data-count="ch42"></span></a></li>
+<li><a href="#quiz" data-toc="quiz"><span class="tch">חזרה</span><span class="tt">מי אמר?</span><span class="tc"></span></a></li>
 </ol>
 </aside>
-
 <main>
   <header class="hero">
-    <div class="eyebrow">הכנה למבחן · חמ״ד · לפי דפי המורה</div>
+    <div class="eyebrow">הכנה למבחן · לפי דפי העבודה של המורה</div>
     <h1>ספר איוב</h1>
-    <p class="lead">מסלול חזרה בן <strong>60 דקות</strong> על איוב א׳–ט׳, ל״ב–ל״ה ומ״ב, בצירוף <strong>מענה ה׳ בפרק ל״ח</strong> שנלמד בדף עבודה ייעודי. <strong>דפי העבודה של המורה הם מקור המיקוד הראשון</strong>: הפסוקים, הטענות, שאלות ההשוואה והפרשנים שהמורה בחרה מופיעים בחלק הגלוי של כל פרק. כל כותרת <strong>״העמקה ותרגול״</strong> ניתנת לפתיחה לפי הצורך, ובה יש הסברים נוספים ושאלות תרגול.</p>
-  </header>
-
-  <div class="core"><div class="k">שאלת היסוד</div><p>כיצד ייתכן שצדיק סובל, אם ה׳ מנהיג את העולם בצדק? תורת הגמול מקשרת בין מעשיו של האדם לבין גורלו. הסיפור מציג איוב צדיק הסובל קשות ומאתגר מסקנה אוטומטית שלפיה סבל מוכיח חטא.</p></div>
-
-  <section class="card" id="plan">
-    <h2>מסלול 60 דקות</h2>
-    <p class="small">לחיצה על קטע מעבירה אליו. אפשר להפעיל טיימר שמראה איפה צריך להיות עכשיו.</p>
-    <div class="timebar" data-total="60"><a class="seg" data-seg="0" data-min="10" href="#s2" style="flex:10"><span class="seg-l">א׳–ג׳</span><span class="seg-m">10′</span></a><a class="seg" data-seg="1" data-min="13" href="#s6" style="flex:13"><span class="seg-l">ד׳–ז׳</span><span class="seg-m">13′</span></a><a class="seg" data-seg="2" data-min="10" href="#s11" style="flex:10"><span class="seg-l">ח׳–ט׳</span><span class="seg-m">10′</span></a><a class="seg" data-seg="3" data-min="10" href="#s14" style="flex:10"><span class="seg-l">ל״ב–ל״ה</span><span class="seg-m">10′</span></a><a class="seg" data-seg="4" data-min="7" href="#s19" style="flex:7"><span class="seg-l">ל״ח</span><span class="seg-m">7′</span></a><a class="seg" data-seg="5" data-min="8" href="#s21" style="flex:8"><span class="seg-l">מ״ב</span><span class="seg-m">8′</span></a><a class="seg" data-seg="6" data-min="2" href="#s22" style="flex:2"><span class="seg-l">בדיקה</span><span class="seg-m">2′</span></a></div>
-    <div class="timer-row">
-      <button class="btn" id="timerBtn">▶ התחלת המסלול</button>
-      <button class="btn ghost" id="timerReset" hidden>איפוס</button>
-      <span class="timer-status" id="timerStatus"></span>
+    <p>נסי לענות על כל שאלה בעצמך, ורק אז לפתוח את התשובה. <strong>דף המורה</strong> = שאלה מדפי העבודה.</p>
+    <div class="tools">
+      <button class="iconbtn" id="showAll" type="button" aria-pressed="false">מצב קריאה: כל התשובות פתוחות</button>
+      <button class="iconbtn" id="hideKnown" type="button" aria-pressed="false">להסתיר מה שידעתי</button>
+      <button class="iconbtn" id="resetBtn" type="button">איפוס סימונים</button>
     </div>
-    <p class="small">זהו מסלול קריאה ממוקד; העמקה בכל הפרשנויות תצריך זמן נוסף.</p>
-  </section>
-
-  <section class="card">
-    <h2>איך עונים על שאלת פסוק?</h2>
-    <p>לזהות מי מדבר, להסביר את לשון הפסוק, להציג את הקשרו בפרק ולהסביר כיצד הוא תומך בטענת הדובר. לא חייבים בהכרח לשנן מילה במילה, אבל כדאי לזהות פסוקים חשובים.</p>
-  </section>
-
-  <details class="deep card" style="padding:0">
-    <summary><span>על המקורות וסדר העדיפויות</span><span class="hint">לפתיחה</span></summary>
-    <div class="deep-body"><p>(1) דפי העבודה של המורה שהועלו, כולל שאלות ללא תשובות; (2) חומרי חמ״ד כהשלמה; (3) הרחבות נלוות. <strong>דפי פרקים א׳–ב׳ טרם אותרו</strong>, אך הם קיימים לפי המידע שנמסר: הכיסוי שלהם כאן נשען זמנית על חומרי החמ״ד ואינו מופחת. <strong>לפרק ל״ח יש דף עבודה מפורט</strong>, אף שלא הופיע ברשימת הפרקים המקורית — לכן הוא נלמד כגשר מרכזי למ״ב, בלי לקבוע שהוא פרק בחינה עצמאי. פרקים כ״ח וכ״ט מוזכרים בדפים להקשר בלבד.</p></div>
-  </details>
-
-<section class="part" id="s1"><h2 class="part-title"><span class="part-no">חלק א׳</span>הניסיון והקינה</h2>
-<article class="chapter" id="s2" data-ch="s2"><header class="ch-head"><span class="ch-num">א׳</span><h3>ניסיונו הראשון של איוב</h3><label class="done"><input type="checkbox" data-done="s2"><span>סיימתי</span></label></header>
-<p>איוב צדיק ועשיר, אב לשבעה בנים ושלוש בנות. השטן טוען שהוא עובד את ה׳ רק מפני שהוא מקבל שכר והגנה. ה׳ מאפשר ניסיון ברכוש ובילדים ולא בגוף. בארבעה אסונות רצופים איוב מאבד רכוש וילדים, אך אינו מקלל את ה׳.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">א׳, א׳</div><blockquote class="vq">״תָּם וְיָשָׁר וִירֵא אֱלֹהִים וְסָר מֵרָע״</blockquote><div class="vexp">המספר עצמו קובע שאיוב צדיק. לכן סבלו אינו הוכחה לחטא.</div></li>
-<li class="verse"><div class="vref">א׳, ט׳</div><blockquote class="vq">״הַחִנָּם יָרֵא אִיּוֹב אֱלֹהִים״</blockquote><div class="vexp">טענת השטן — האם יראת איוב אמיתית או תלויה בשכר?</div></li>
-<li class="verse"><div class="vref">א׳, ט״ז–י״ח</div><blockquote class="vq">״עוֹד זֶה מְדַבֵּר וְזֶה בָּא״</blockquote><div class="vexp">חזרה המעצימה את קצב האסונות.</div></li>
-<li class="verse"><div class="vref">א׳, כ״א</div><blockquote class="vq">״ה׳ נָתַן וַה׳ לָקָח יְהִי שֵׁם ה׳ מְבֹרָךְ״</blockquote><div class="vexp">איוב מתאבל ומברך את ה׳, בניגוד לתחזית השטן.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> שני מישורים — שמים וארץ. הקורא מכיר את הרקע לניסיון, אך איוב ורעיו אינם מכירים אותו (<strong>אירוניה דרמטית</strong>).</p></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>ארבעת האסונות: השבאים פוגעים בבקר ובאתונות; אש פוגעת בצאן; הכשדים בגמלים; רוח גדולה ממוטטת את בית הילדים. המכה האחרונה היא הקשה ביותר. עוד קודם לכן איוב הקריב קרבנות עבור ילדיו מחשש לחטא, אפילו בלבם.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מדוע חשוב שהקורא יודע כבר בתחילת הספר שאיוב צדיק?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">כך הוא יודע שהרעים יטעו אם יסיקו מסבלו שאיוב בהכרח חטא.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s3" data-ch="s3"><header class="ch-head"><span class="ch-num">ב׳</span><h3>הניסיון הגופני</h3><label class="done"><input type="checkbox" data-done="s3"><span>סיימתי</span></label></header>
-<p>השטן טוען שאיוב שמר על נאמנותו משום שגופו לא נפגע. ה׳ מאפשר פגיעה גופנית, אך לא את מות איוב. איוב מוכה בשחין. אשתו קוראת לו לקלל את ה׳ ולמות; הוא מסרב. שלושת הרעים מגיעים ויושבים עמו בשתיקה שבעה ימים.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ב׳, ד׳</div><blockquote class="vq">״עוֹר בְּעַד עוֹר וְכֹל אֲשֶׁר לָאִישׁ יִתֵּן בְּעַד נַפְשׁוֹ״</blockquote><div class="vexp">השטן טוען שאדם מוכן לאבד דברים רבים כדי להציל את עצמו.</div></li>
-<li class="verse"><div class="vref">ב׳, ט׳</div><blockquote class="vq">״בָּרֵךְ אֱלֹהִים וָמֻת״</blockquote><div class="vexp">דברי האישה; ״ברך״ משמש בלשון סגי נהור במשמעות לקלל.</div></li>
-<li class="verse"><div class="vref">ב׳, י׳</div><blockquote class="vq">״גַּם אֶת הַטּוֹב נְקַבֵּל מֵאֵת הָאֱלֹהִים וְאֶת הָרָע לֹא נְקַבֵּל״</blockquote><div class="vexp">אמונה אינה תלויה רק בקבלת הטוב.</div></li>
-<li class="verse"><div class="vref">ב׳, י׳</div><blockquote class="vq">״בְּכָל זֹאת לֹא חָטָא אִיּוֹב בִּשְׂפָתָיו״</blockquote><div class="vexp">מודגש שלא חטא בדיבורו; אפשר לדון במחשבותיו.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> בפרק א׳ איוב מברך במפורש, ובפרק ב׳ הוא מקבל את הרע בלי ברכה מפורשת. בדיוני הפרשנות על ״בשפתיו״ מודגש ההבדל בין מה שנאמר בפה לבין מה שעשוי להתרחש בלב. לפי דברי חז״ל המובאים בהקשר זה, ייתכן שלא חטא בשפתיו, אך בלבו התחולל שינוי.</p></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>דברי אשת איוב עשויים להיחשב ניסיון נוסף: היא מציעה לו בדיוק את המעשה שהשטן ביקש שיתרחש. אפשר לדון באמונה מתוך אהבה לעומת אמונה המבוססת על ציפייה לגמול.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מה משתנה בין שני הניסיונות?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">בראשון נפגעים רכושו ומשפחתו של איוב; בשני גופו. השטן מנסה להוכיח שהאמונה תלויה בהגנה על החיים.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s4" data-ch="s4"><header class="ch-head"><span class="ch-num">ג׳</span><h3>קינת איוב</h3><label class="done"><input type="checkbox" data-done="s4"><span>סיימתי</span></label></header>
-<p>אחרי שבעה ימי שתיקה איוב מקלל את יום לידתו, מתחרט שלא מת בלידתו ומתאר את המוות כמנוחה מן הסבל. הוא <strong>אינו מקלל ישירות את ה׳</strong>, בניגוד למה שביקש השטן.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ג׳, ג׳</div><blockquote class="vq">״יֹאבַד יוֹם אִוָּלֶד בּוֹ״</blockquote><div class="vexp">קללת יום הלידה ולא קללת ה׳.</div></li>
-<li class="verse"><div class="vref">ג׳, י״א</div><blockquote class="vq">״לָמָּה לֹּא מֵרֶחֶם אָמוּת״</blockquote><div class="vexp">שאלה רטורית המבטאת ייאוש.</div></li>
-<li class="verse"><div class="vref">ג׳, כ׳</div><blockquote class="vq">״לָמָּה יִתֵּן לְעָמֵל אוֹר וְחַיִּים לְמָרֵי נָפֶשׁ״</blockquote><div class="vexp">מדוע ניתנים חיים לסובלים?</div></li>
-<li class="verse"><div class="vref">ג׳, כ״ג</div><blockquote class="vq">״וַיָּסֶךְ אֱלוֹהַּ בַּעֲדוֹ״</blockquote><div class="vexp">איוב חש שה׳ חוסם את דרכו; השוו ל־<strong>א׳, י׳ — ״הֲלֹא אַתָּה שַׂכְתָּ בַעֲדוֹ״</strong>, שבו השטן מתאר הגנה.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> מאפייני הקינה הם שאלות רטוריות, חזרה על ״למה״ והיפוך היחס בין אור לחושך: האור והחיים נתפסים כסבל, והחושך והמוות כמנוחה. השוואת ״שכת בעדו״ ל״ויסך אלוה בעדו״ מדגישה אותו דימוי במשמעות הפוכה.</p></div>
-<h4 class="sub">דגש מדף העבודה — ״מנגינת חייו״, פסוקים כ״ה–כ״ו</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ג׳, כ״ה</div><blockquote class="vq">״כִּי פַחַד פָּחַדְתִּי וַיֶּאֱתָיֵנִי וַאֲשֶׁר יָגֹרְתִּי יָבֹא לִי״</blockquote><div class="vexp">איוב מתאר פחד מתמשך שהתגשם. המורה שואלת מה הדבר מלמד על מצבו הנפשי <strong>לפני הניסיון ואחריו</strong>. תשובה אפשרית: ייתכן שאפילו בתקופת השפע היה איוב חרד מפני אובדן; לאחר האסונות הפחד נעשה מציאות. זו אפשרות פרשנית, לא קביעה ודאית על מצבו הקודם.</div></li>
-<li class="verse"><div class="vref">ג׳, כ״ו</div><blockquote class="vq">״לֹא שָׁלַוְתִּי וְלֹא שָׁקַטְתִּי וְלֹא נָחְתִּי וַיָּבֹא רֹגֶז״</blockquote><div class="vexp">החזרה המשולשת מדגישה חוסר מנוחה וחרדה.</div></li>
-</ul>
-<p><strong>הקשר שהמורה מבקשת:</strong> לא רק אמצעים ספרותיים, אלא מה איוב חושב על ערך החיים בזמן סבל, וכיצד הוא בוחר להגיב למחשבותיו. בדף מוזכר סרטון על <strong>ויקטור פרנקל</strong>, אך תוכן הסרטון עצמו לא צורף; לכן ההשוואה המדויקת אליו נשארת פתוחה ולא מוצגת כאן כתשובה מוסמכת.</p>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>חלוקה: פסוקים א׳–ט׳ קללת יום הלידה; י׳–י״ט משאלה למות בלידה ותיאור המנוחה; כ׳–כ״ו שאלות על משמעות החיים בייסורים.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מדוע הפסוק ״ויסך אלוה בעדו״ חשוב בהשוואה לפרק א׳?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">מה שהשטן תיאר כהגנה שמביאה שפע מתואר כעת בעיני איוב כחסימה המונעת מוצא.</div></details></div>
-</div></details>
-</article>
-</section>
-<section class="part" id="s5"><h2 class="part-title"><span class="part-no">חלק ב׳</span>אליפז ותשובת איוב</h2>
-<article class="chapter" id="s6" data-ch="s6"><header class="ch-head"><span class="ch-num">ד׳</span><h3>אליפז על הגמול</h3><label class="done"><input type="checkbox" data-done="s6"><span>סיימתי</span></label></header>
-<p>אליפז משבח את איוב על שסייע לאחרים, אך מבקר את התייאשותו בעת צרתו. לטענתו, הצדיקים אינם אובדים בסופו של דבר והרשעים קוצרים את תוצאות מעשיהם. אליפז אינו מצביע על חטא מסוים של איוב, אלא רומז לחולשת האדם לפני ה׳.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ד׳, ג׳–ה׳</div><blockquote class="vq">״הִנֵּה יִסַּרְתָּ רַבִּים וְיָדַיִם רָפוֹת תְּחַזֵּק״</blockquote><div class="vexp">דברי שבח שהופכים גם לביקורת: איוב חיזק אחרים אך מתקשה כשסבל מגיע אליו.</div></li>
-<li class="verse"><div class="vref">ד׳, ו׳</div><blockquote class="vq">״הֲלֹא יִרְאָתְךָ כִּסְלָתֶךָ תִּקְוָתְךָ וְתֹם דְּרָכֶיךָ״</blockquote><div class="vexp">אפשר להבין כעידוד או כביקורת על ביטחונו של איוב. מלבי״ם מדגיש את האפשרות שיראתו נבעה מציפייה להגנה ולשכר.</div></li>
-<li class="verse"><div class="vref">ד׳, ז׳</div><blockquote class="vq">״זְכָר נָא מִי הוּא נָקִי אָבָד״</blockquote><div class="vexp">נקי אינו אובד בסופו של דבר.</div></li>
-<li class="verse"><div class="vref">ד׳, ח׳</div><blockquote class="vq">״חֹרְשֵׁי אָוֶן וְזֹרְעֵי עָמָל יִקְצְרֻהוּ״</blockquote><div class="vexp">משל זריעה וקציר — אדם נושא בתוצאות מעשיו.</div></li>
-<li class="verse"><div class="vref">ד׳, י״ז</div><blockquote class="vq">״הַאֱנוֹשׁ מֵאֱלוֹהַּ יִצְדָּק״</blockquote><div class="vexp">חזיון הלילה מדגיש שאין אדם צדיק לחלוטין מול ה׳.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> אליפז משתמש בשבח, תוכחה, ניסיון אישי, משלי זריעה ואריות וחזיון. הוא סבור שייסורי אדם צריכים להתפרש על רקע תורת הגמול.</p></div>
-<h4 class="sub">דגש מדף העבודה — טענות, סאבטקסט וחברות</h4>
-<p>אליפז אינו אומר במפורש ״איוב, חטאת״, אך דבריו עשויים להישמע כהאשמה עקיפה: <em>אם אין נקי אובד, אולי גם איוב אינו נקי</em>. הוא מדבר באופן לכאורה מנחם, אך מפספס את מצוקת האדם שמולו. לכן המורה מבקשת להבחין בין <strong>הטענה הגלויה</strong>, <strong>הרמז שמתחתיה</strong> ו<strong>הדרך שבה חבר צריך לדבר עם אדם כאוב</strong>.</p>
-<p><strong>שאלת מיקוד מן הדף:</strong> אליפז מתמודד עם האמירה <strong>״העולם רע״</strong> ועם ביקורת על ההשגחה. אבל האם הצליח להשיב באמת לשאלת <strong>צדיק ורע לו</strong>? לא: הוא אינו נותן מענה לאפשרות של אדם צדיק הסובל שלא באשמתו.</p>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>גם האריה החזק עלול להיחלש או לכלות; זו המחשה נוספת לכך שכוח הרשע אינו מובטח. במדריך החמ״ד נידונות גם הקריאות המנחמת והביקורתית של ד׳, ו׳.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>כיצד שני המשלים תומכים בגמול?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">הזריעה מדגימה קשר בין מעשה לתוצאה; האריות מלמדים שגם כוח שנראה בלתי מנוצח עלול להיעלם.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s7" data-ch="s7"><header class="ch-head"><span class="ch-num">ה׳</span><h3>אליפז על ייסורים כמוסר</h3><label class="done"><input type="checkbox" data-done="s7"><span>סיימתי</span></label></header>
-<p>אליפז טוען שהסבל אינו מקרי ומייעץ לאיוב לפנות אל ה׳. לצד הקשר שבין חטא ועונש, הוא מציג אפשרות נוספת: ייסורים עשויים לחנך, לתקן ולהביא אחריהם ריפוי ושיקום.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ה׳, ו׳</div><blockquote class="vq">״כִּי לֹא יֵצֵא מֵעָפָר אָוֶן וּמֵאֲדָמָה לֹא יִצְמַח עָמָל״</blockquote><div class="vexp">הצרות אינן צומחות מאליהן; אליפז קושר אותן למעשי האדם.</div></li>
-<li class="verse"><div class="vref">ה׳, ז׳</div><blockquote class="vq">״כִּי אָדָם לְעָמָל יוּלָּד״</blockquote><div class="vexp">לפי מלבי״ם, העמל וההשתדלות של האדם חשובים להצלחתו, ולא גזרת הכוכבים לבדה.</div></li>
-<li class="verse"><div class="vref">ה׳, ח׳–ט׳</div><blockquote class="vq">״אוּלָם אֲנִי אֶדְרֹשׁ אֶל אֵל ... עֹשֶׂה גְדֹלוֹת וְאֵין חֵקֶר״</blockquote><div class="vexp">יש לפנות לה׳, כי הוא יכול לחולל ישועה ושינוי לטובה.</div></li>
-<li class="verse"><div class="vref">ה׳, י״ז–י״ח</div><blockquote class="vq">״וּמוּסַר שַׁדַּי אַל תִּמְאָס ... כִּי הוּא יַכְאִיב וְיֶחְבָּשׁ״</blockquote><div class="vexp">כאב יכול להיות תוכחה לצורך תיקון; ה׳ שמכאיב גם מרפא.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> להבחין בין גמול על חטא לבין ייסורים שיש להם תכלית חינוכית. מדריך החמ״ד מדגיש גם את האיסור להכאיב לאדם סובל באמצעות האשמות; הגמרא בבבא מציעא נ״ח ע״ב מביאה את דברי רעי איוב כדוגמה ל״אונאת דברים״.</p></div>
-<h4 class="sub teacher"><span class="badge">מדף המורה</span>רמב״ם, מורה נבוכים ג׳, י״ב — שלושת סוגי הרע (קטע מפורש בדף המורה)</h4>
-<ol>
-<li><strong>רעה הנובעת מטבע החומר והעולם:</strong> מחלה, פגיעה גופנית, אסונות טבע ומגבלות הקיום החומרי.</li>
-<li><strong>רעה שבני אדם גורמים זה לזה:</strong> אלימות, שוד, מלחמות ודיכוי.</li>
-<li><strong>רעה שאדם גורם לעצמו במעשיו:</strong> מותרות, חוסר מידה, תאוות והרגלים מזיקים. לפי הרמב״ם, <strong>זהו הסוג הנפוץ ביותר</strong>.</li>
-</ol>
-<p><strong>מקור הטעות ש״יש יותר רע מטוב״:</strong> האדם מתמקד בצרות, בחסר ובתשוקותיו הבלתי מוגבלות, ומתעלם מן הטוב הרב שבקיום. <strong>הקשר לאיוב ג׳:</strong> מתוך כאבו איוב מתאר את החיים כעול. <strong>הקשר לאליפז:</strong> אליפז מדגיש את הזיקה בין מעשי האדם לבין הסבל, ולכן הוא קרוב במיוחד לסוג השלישי. <strong>מה חסר אצל שניהם ביחס למקרה של איוב?</strong> תשובה מספקת לסבל של אדם צדיק שלא הוכח שחטא.</p>
-<div class="callout note"><p><strong>הבחנה חשובה:</strong> שלוש הקטגוריות הן דברי הרמב״ם בקטע של המורה; אין להסיק שכל ייסורי איוב עצמו שייכים לקטגוריה השלישית.</p></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>בסוף הנאום אליפז מבטיח הגנה, ביטחון ומשפחה. יש להבחין בין מלבי״ם על ד׳, ו׳ (אמונה התלויה בציפייה לשכר) לבין ה׳, ז׳ (עמל והשתדלות האדם).</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מדוע כוח ה׳ תומך בהמלצה להתפלל?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">מפני שה׳ מסוגל להפוך את המציאות ולסייע לאדם הסובל, ולכן יש תקווה בפנייה אליו.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s8" data-ch="s8"><header class="ch-head"><span class="ch-num">ו׳</span><h3>תגובת איוב לסבל ולרעים</h3><label class="done"><input type="checkbox" data-done="s8"><span>סיימתי</span></label></header>
-<p>איוב מסביר שסבלו קשה מכפי שהרעים מבינים. הוא מבקר אותם על שאינם מנחמים אותו ודורש הוכחה לחטא ממשי, במקום להסיק מסבלו שהוא אשם.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ו׳, ב׳–ג׳</div><blockquote class="vq">״לוּ שָׁקוֹל יִשָּׁקֵל כַּעְשִׂי ... מֵחוֹל יַמִּים יִכְבָּד״</blockquote><div class="vexp">הסבל הכבד מסביר את דבריו החריפים.</div></li>
-<li class="verse"><div class="vref">ו׳, ד׳</div><blockquote class="vq">״כִּי חִצֵּי שַׁדַּי עִמָּדִי״</blockquote><div class="vexp">הסבל מדומה לחיצים שנורים אליו.</div></li>
-<li class="verse"><div class="vref">ו׳, י׳</div><blockquote class="vq">״כִּי לֹא כִחַדְתִּי אִמְרֵי קָדוֹשׁ״</blockquote><div class="vexp">איוב טוען שלא כפר בדברי ה׳ או הסתירם; זהו מענה לפקפוק של אליפז ביראת השמים שלו.</div></li>
-<li class="verse"><div class="vref">ו׳, ט״ו</div><blockquote class="vq">״אַחַי בָּגְדוּ כְמוֹ נָחַל״</blockquote><div class="vexp">משל נחל אכזב — החברים אינם מסייעים דווקא כשהוא זקוק להם.</div></li>
-<li class="verse"><div class="vref">ו׳, כ״ד</div><blockquote class="vq">״הוֹרוּנִי וַאֲנִי אַחֲרִישׁ וּמַה שָּׁגִיתִי הָבִינוּ לִי״</blockquote><div class="vexp">איוב מוכן לתיקון, אך דורש ראיות.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> <strong>רש״י וראב״ע לו׳, כ״א</strong> — לפי רש״י, הרעים כושלים כחברים כמו נחל האכזב; לפי ראב״ע, הם מצדדים בה׳ מתוך פחד שגם עליהם יבוא אסון, ולא מפני שהוכיחו שאיוב אשם.</p></div>
-<h4 class="sub teacher"><span class="badge">מדף המורה</span>דגש מרכזי מדף המורה — כיצד איוב עונה לאליפז, טענה אחר טענה?</h4>
-<ol>
-<li><strong>״אתה חיזקת אחרים וכעת נשברת״:</strong> איוב עונה שאין אדם מבחוץ יכול לשקול את מלוא הכאב שחווה הזולת: <strong>״מחול ימים יכבד״ (ו׳, ג׳)</strong>.</li>
-<li><strong>״אין נקי אובד, אולי חטאת״:</strong> איוב דורש ראיות: <strong>״ומה שגיתי הבינו לי״ (ו׳, כ״ד)</strong>.</li>
-<li><strong>״פנה אל ה׳, קבל את הייסורים״:</strong> מבחינת איוב, אובדן ילדיו אינו ״ירידה לצורך עלייה״ פשוטה; שיפור עתידי אינו מחזיר את מי שאבד.</li>
-<li><strong>פקפוק ביראת השמים של איוב:</strong> איוב עומד על נאמנותו: <strong>״לא כחדתי אמרי קדוש״ (ו׳, י׳)</strong>.</li>
-</ol>
-<p><strong>הרב קוק, שמונה קבצים א׳, ע״ה:</strong> ״אסור ליראת שמים שתדחק את המוסר הטבעי של האדם״. יראת שמים אמיתית <strong>מחזקת</strong> את המצפון, החסד והרגישות המוסרית, ולא מחליפה אותם. בכך מובנת ביקורת איוב: דיבור בשם הצדק האלוהי שאינו מגלה חמלה לאדם סובל מחמיץ ערך מוסרי יסודי.</p>
-<p><strong>אמפתיה לעומת סימפתיה:</strong> המורה מבקשת לראות מה איוב זקוק לו מהחברים — לא רק רעיון נכון לכאורה, אלא הקשבה, הכרה בכאבו ונוכחות ללא האשמה. ההבחנה המדויקת בסרטון הכיתה אינה מצורפת, ולכן ההגדרה הזו היא הסבר מסייע ולא ציטוט מהסרטון.</p>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>השאלות על בעלי חיים ומזון בפסוקים ה׳–ו׳ מדגימות שיש סיבה לזעקתו של איוב. הרעים מוסיפים לסבלו בכך שאינם מוכנים להקשיב ללא האשמה.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מה ההבדל בין פירושי רש״י וראב״ע?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">רש״י מדגיש בגידה וחוסר תמיכה; ראב״ע מדגיש פחד מפני כוחו של ה׳.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s9" data-ch="s9"><header class="ch-head"><span class="ch-num">ז׳</span><h3>חולשת האדם מול ה׳</h3><label class="done"><input type="checkbox" data-done="s9"><span>סיימתי</span></label></header>
-<p>איוב עובר מדיון בסבלו האישי לשאלה כללית: חיי האדם קצרים, קשים וחולפים במהירות. הוא שואל מדוע ה׳ בוחן ללא הרף יצור חלש כל כך.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ז׳, א׳</div><blockquote class="vq">״הֲלֹא צָבָא לֶאֱנוֹשׁ עֲלֵי אָרֶץ וְכִימֵי שָׂכִיר יָמָיו״</blockquote><div class="vexp">החיים כמו שירות קשה או עבודת שכיר.</div></li>
-<li class="verse"><div class="vref">ז׳, ו׳</div><blockquote class="vq">״יָמַי קַלּוּ מִנִּי אָרֶג״</blockquote><div class="vexp">החיים חולפים במהירות.</div></li>
-<li class="verse"><div class="vref">ז׳, י״ז–י״ח</div><blockquote class="vq">״מָה אֱנוֹשׁ כִּי תְגַדְּלֶנּוּ ... לִרְגָעִים תִּבְחָנֶנּוּ״</blockquote><div class="vexp">מדוע ה׳ בוחן ללא הרף אדם קצר ימים?</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> אליפז קורא לאיוב לפנות אל ה׳ בתקווה לעזרה, ואיוב אכן פונה אליו — אך באמצעות תלונה ודרישה להסבר. יש לזהות את המעבר מסבל פרטי לטענה על מצב האדם בכלל.</p></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>איוב מתאר גם לילות ללא מנוחה ותחושה של חוסר תקווה. בפרק יש שינוי בקהל היעד של הדיבור: איוב פונה ישירות אל ה׳.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>במה פרק ז׳ מרחיב את פרק ו׳?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">מפרט הסבל והיחס של הרעים לעיסוק בגורל האנושי ובשאלה מדוע ה׳ מדקדק עם האדם.</div></details></div>
-</div></details>
-</article>
-</section>
-<section class="part" id="s10"><h2 class="part-title"><span class="part-no">חלק ג׳</span>בלדד ותשובת איוב</h2>
-<article class="chapter" id="s11" data-ch="s11"><header class="ch-head"><span class="ch-num">ח׳</span><h3>בלדד על הצדק המוחלט</h3><label class="done"><input type="checkbox" data-done="s11"><span>סיימתי</span></label></header>
-<p>בלדד תקיף יותר מאליפז. הוא קובע שה׳ אינו מעוות משפט, רומז שמות בני איוב קשור לחטאם ומבטיח שיקום אם איוב צדיק ויפנה לה׳. הוא מסתמך על מסורת הדורות ומשלים מן הטבע.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ח׳, ג׳</div><blockquote class="vq">״הַאֵל יְעַוֵּת מִשְׁפָּט וְאִם שַׁדַּי יְעַוֵּת צֶדֶק״</blockquote><div class="vexp">שאלה רטורית; בלדד מניח שה׳ תמיד שופט בצדק.</div></li>
-<li class="verse"><div class="vref">ח׳, ד׳</div><blockquote class="vq">״אִם בָּנֶיךָ חָטְאוּ לוֹ וַיְשַׁלְּחֵם בְּיַד פִּשְׁעָם״</blockquote><div class="vexp">בלדד מציע שבני איוב מתו בגלל חטאם ללא ראיה לכך.</div></li>
-<li class="verse"><div class="vref">ח׳, ו׳–ז׳</div><blockquote class="vq">״אִם זַךְ וְיָשָׁר אָתָּה ... וְאַחֲרִיתְךָ יִשְׂגֶּה מְאֹד״</blockquote><div class="vexp">תקווה לשיקום אם איוב צדיק.</div></li>
-<li class="verse"><div class="vref">ח׳, ח׳</div><blockquote class="vq">״כִּי שְׁאַל נָא לְדֹר רִישׁוֹן״</blockquote><div class="vexp">מקור הסמכות הוא מסורת הדורות.</div></li>
-<li class="verse"><div class="vref">ח׳, י״א–ט״ו</div><blockquote class="vq">״הֲיִגְאֶה גֹמֶא בְּלֹא בִצָּה ... וּבֵית עַכָּבִישׁ מִבְטַחוֹ״</blockquote><div class="vexp">הצמח התלוי במים וקורי העכביש מדמים הצלחה זמנית וביטחון שברירי.</div></li>
-<li class="verse"><div class="vref">ח׳, ט״ז–י״ט</div><blockquote class="vq">״רָטֹב הוּא לִפְנֵי שָׁמֶשׁ ... עַל גַּל שָׁרָשָׁיו יְסֻבָּכוּ״</blockquote><div class="vexp">דימוי הצמח העמוק משמש להשוואה לגורל יציב יותר של הצדיק.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> לפי רמב״ן בלדד ממשיך ומחזק את תפיסת אליפז, אף שהוא תקיף יותר. להכיר את שני המשלים והנמשל: הרשע עשוי לפרוח זמנית אך אינו יציב; לצדיק יש אפשרות לתקומה ושיקום.</p></div>
-<h4 class="sub teacher"><span class="badge">מדף המורה</span>דגשים ייחודיים מדפי המורה</h4>
-<p><strong>הבשורה הטובה בתורת הגמול של בלדד:</strong> אם העולם מתנהל לפי משפט הקשור למעשי האדם, יש לאדם אפשרות לשנות את דרכו, לשוב בתשובה ולתקן את עתידו. זו נקודת כוח בתפיסתו, ולא רק איום.</p>
-<p><strong>ברכות ה׳ ע״א — ״אם רואה אדם שיסורין באין עליו יפשפש במעשיו״:</strong> תחילה בודקים את המעשים; אם לא נמצא חטא, בודקים ביטול תורה; ואם גם אז לא נמצאה סיבה — תולים ב<strong>ייסורין של אהבה</strong>. הרעיון פותח אפשרות לחשבון נפש בלי להכריע שכל סבל הוא עונש על אשמה ידועה.</p>
-<p><strong>מה חסר אם מסתפקים רק במשפט?</strong> חסד ורחמים: ״הזן את העולם כולו בטובו בחן בחסד וברחמים״ (ברכת המזון). המורה מעמידה מול בלדד את השאלה האם כל יחס אלוהי לאדם מוסבר רק במונחי זכויות וחובות.</p>
-<p><strong>מה בלדד עושה בניגוד לאליפז?</strong> הוא מעלה במפורש הסבר קשה למות ילדי איוב (ח׳, ד׳). בכך הוא חוצה גבול רגיש במיוחד בדיבור לחבר אבל.</p>
-<p><strong>משל העץ הנופל:</strong> אם עץ נופל בסערה, בלדד יכול להסיק ששורשיו אינם חזקים מספיק; הנפילה עשויה לחשוף בעיה ולעורר לתיקון. זוהי <strong>טענת בלדד</strong>, לא הוכחה שכל אדם שנפגע ראוי לכך.</p>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>נאום בלדד: ב׳–ז׳ צדקת ה׳; ח׳–י״ט משלי הקדמונים; כ׳–כ״ב התקווה לשיקום. ההבדל ממקור סמכותו של אליפז: מסורת דורות לעומת ניסיון וחזיון.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מהו הנמשל של קורי העכביש?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">ההסתמכות של הרשע על הצלחתו נראית בטוחה, אך היא עלולה לקרוס.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s12" data-ch="s12"><header class="ch-head"><span class="ch-num">ט׳</span><h3>גדולת ה׳ ושאלת המשפט</h3><label class="done"><input type="checkbox" data-done="s12"><span>סיימתי</span></label></header>
-<p>איוב מסכים שה׳ חכם וחזק ללא גבול, אך טוען שאין לאדם אפשרות אמיתית להוכיח את צדקתו במשפט נגד ה׳. בנוסף, גם הצדיק וגם הרשע עלולים לסבול.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ט׳, ב׳–ד׳</div><blockquote class="vq">״וּמַה יִּצְדַּק אֱנוֹשׁ עִם אֵל ... חֲכַם לֵבָב וְאַמִּיץ כֹּחַ״</blockquote><div class="vexp">כוח וחוכמה אלוהיים מול חולשת האדם במשפט.</div></li>
-<li class="verse"><div class="vref">ט׳, י׳</div><blockquote class="vq">״עֹשֶׂה גְדֹלוֹת עַד אֵין חֵקֶר וְנִפְלָאוֹת עַד אֵין מִסְפָּר״</blockquote><div class="vexp">דומה לה׳, ט׳ אצל אליפז; שם גדולת ה׳ מקור לתקווה, וכאן לחוסר אונים.</div></li>
-<li class="verse"><div class="vref">ט׳, כ׳</div><blockquote class="vq">״אִם אֶצְדָּק פִּי יַרְשִׁיעֵנִי״</blockquote><div class="vexp">לפי מלבי״ם, טענת צדקות מול משפט ה׳ עלולה כשלעצמה להיתפס כהאשמה כלפי ה׳.</div></li>
-<li class="verse"><div class="vref">ט׳, כ״ב</div><blockquote class="vq">״תָּם וְרָשָׁע הוּא מְכַלֶּה״</blockquote><div class="vexp">גם צדיק וגם רשע עלולים להיפגע, לכן סבל אינו ראיה לחטא.</div></li>
-<li class="verse"><div class="vref">ט׳, כ״ד</div><blockquote class="vq">״אֶרֶץ נִתְּנָה בְיַד רָשָׁע״</blockquote><div class="vexp">יש בעולם גם הצלחה של רשעים.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> במדריך החמ״ד המוקד הוא א׳–כ״ד: א׳–י׳ גדולת ה׳; י״א–כ״א הקושי לזכות במשפט; כ״ב–כ״ד הערעור על ההנחה שכל סבל משקף אשמה. איוב אינו כופר בכוחו של ה׳ — הוא מתלבט לגבי צדקת ההנהגה כפי שהאדם חווה אותה.</p></div>
-<h4 class="sub teacher"><span class="badge">מדף המורה</span>פסוקים שסומנו בדף המורה — יש לזהותם בהקשר המשפטי</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ט׳, י״א–י״ב</div><blockquote class="vq">״הֵן יַעֲבֹר עָלַי וְלֹא אֶרְאֶה ... הֵן יַחְתֹּף מִי יְשִׁיבֶנּוּ״</blockquote><div class="vexp">ה׳ פועל בדרכים שאיוב אינו מסוגל להבין או לעצור.</div></li>
-<li class="verse"><div class="vref">ט׳, ט״ז</div><blockquote class="vq">״אִם קָרָאתִי וַיַּעֲנֵנִי לֹא אַאֲמִין כִּי יַאֲזִין קוֹלִי״</blockquote><div class="vexp">גם אם איוב יזכה לתשובה, הוא מרגיש שאין לו ביטחון שבאמת יישמע.</div></li>
-<li class="verse"><div class="vref">ט׳, י״ז</div><blockquote class="vq">״אֲשֶׁר בִּשְׂעָרָה יְשׁוּפֵנִי וְהִרְבָּה פְצָעַי חִנָּם״</blockquote><div class="vexp">איוב חווה את סבלו כבלתי מוצדק; ״חינם״ מחזיר לשאלת השטן ״החינם״ (א׳, ט׳) אך במשמעות שונה.</div></li>
-<li class="verse"><div class="vref">ט׳, ל״ב–ל״ג</div><blockquote class="vq">״כִּי לֹא אִישׁ כָּמֹנִי אֶעֱנֶנּוּ נָבוֹא יַחְדָּו בַּמִּשְׁפָּט. לֹא יֵשׁ בֵּינֵינוּ מוֹכִיחַ יָשֵׁת יָדוֹ עַל שְׁנֵינוּ״</blockquote><div class="vexp">מכיוון שה׳ אינו אדם שווה לו, איוב זקוק למתווך או שופט שיוכל להעמיד את שני הצדדים למשפט הוגן.</div></li>
-<li class="verse"><div class="vref">ט׳, ל״ד–ל״ה</div><blockquote class="vq">״יָסֵר מֵעָלַי שִׁבְטוֹ ... אֲדַבְּרָה וְלֹא אִירָאֶנּוּ״</blockquote><div class="vexp">איוב מבקש שיוסר הפחד המונע ממנו לדבר בחופשיות.</div></li>
-</ul>
-<div class="callout note"><p><strong>הדגש:</strong> המורה בחרה במפורש גם את פסוקים ל״ב–ל״ה. לכן הם חלק מרכזי בסיכום הזה — אף שמדריך חמ״ד מסוים מדגיש בעיקר את א׳–כ״ד. <strong>הקשר להמשך:</strong> במענה ה׳ נאמר ״ויען ה׳ את איוב מן הסערה״ (ל״ח, א׳); אפשר להשוות לתחושת ״בשערה ישופני״ של איוב כאן.</p></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>אפשר להתבונן בתיאורי כוח ה׳ בטבע ובפער בין כוח לשיפוט הוגן. זוהי תשובה ישירה לבלדד, שקובע מראש שה׳ אינו מעוות משפט.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מדוע ״תם ורשע הוא מכלה״ מערער על בלדד?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">מפני שסבלם של צדיקים מוכיח שאי אפשר להאשים אדם רק מתוך מצבו.</div></details></div>
-</div></details>
-</article>
-</section>
-<section class="part" id="s13"><h2 class="part-title"><span class="part-no">חלק ד׳</span>נאומי אליהוא</h2>
-<div class="callout note"><p><strong>הערת מיקוד:</strong> אלו פרקי הלימוד שביקשת, אך הפרטים שלהלן מתבססים גם על חומרי הוראה תורניים משלימים. לא כל פרשנות כאן אומתה כחובת בחינה רשמית של החמ״ד.</p></div>
-<article class="chapter" id="s14" data-ch="s14"><header class="ch-head"><span class="ch-num">ל״ב</span><h3>אליהוא מבקר את שני הצדדים</h3><label class="done"><input type="checkbox" data-done="s14"><span>סיימתי</span></label></header>
-<p>אליהוא הצעיר המתין מתוך כבוד לרעים המבוגרים ממנו. כעת הוא כועס על איוב ועל הרעים ומחליט לדבר.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ל״ב, ב׳</div><blockquote class="vq">״עַל צַדְּקוֹ נַפְשׁוֹ מֵאֱלֹהִים״</blockquote><div class="vexp">כעס על איוב שמצדיק עצמו באופן שעלול להציג את ה׳ כבלתי צודק.</div></li>
-<li class="verse"><div class="vref">ל״ב, ג׳</div><blockquote class="vq">״לֹא מָצְאוּ מַעֲנֶה וַיַּרְשִׁיעוּ אֶת אִיּוֹב״</blockquote><div class="vexp">כעס על הרעים שלא הצליחו להשיב, אך הרשיעו את איוב.</div></li>
-<li class="verse"><div class="vref">ל״ב, ח׳–ט׳</div><blockquote class="vq">״וְנִשְׁמַת שַׁדַּי תְּבִינֵם ... לֹא רַבִּים יֶחְכָּמוּ״</blockquote><div class="vexp">החוכמה אינה תלויה רק בגיל, אלא בתבונה שנותן ה׳.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> חובה להבחין בין שתי סיבות כעסו. הוא אינו מסכים לגמרי לא עם איוב ולא עם הרעים.</p></div>
-<p><strong>הקטע המדויק בדף המורה:</strong> ל״ב, א׳–י׳ לפי פירוש שטיינזלץ. הוא מדגיש ששלושת הרעים <strong>הפסיקו לענות</strong> משום שלא הצליחו לשכנע את איוב, ואליהוא המתין מפני שהיה צעיר. הנושא אינו רק סמכותו של צעיר מול זקנים, אלא <strong>הקושי להקשיב ולתת מענה אמיתי לאדם הסובל</strong>.</p>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>אליהוא משווה את מחשבותיו ליין הלוחץ בנאד (פסוק י״ט). זוהי תמונת הצורך שלו לדבר.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מדוע התעכב בדבריו?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">תחילה כיבד את גילם וניסיונם של הרעים, ואחר כך הבין שגיל לבדו אינו מבטיח חוכמה.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s15" data-ch="s15"><header class="ch-head"><span class="ch-num">ל״ג</span><h3>ייסורים כאזהרה</h3><label class="done"><input type="checkbox" data-done="s15"><span>סיימתי</span></label></header>
-<p>אליהוא טוען שה׳ פונה לאנשים באמצעות חלומות, חזיונות ולעיתים גם ייסורים. תפקידם של הייסורים יכול להיות מניעת חטא או סכנה עתידית, ולא רק עונש על העבר.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ל״ג, ו׳</div><blockquote class="vq">״מֵחֹמֶר קֹרַצְתִּי גַם אָנִי״</blockquote><div class="vexp">אליהוא הוא אדם כמו איוב, ולכן אין צורך לפחד ממנו.</div></li>
-<li class="verse"><div class="vref">ל״ג, י״ד–ט״ו</div><blockquote class="vq">״כִּי בְאַחַת יְדַבֶּר אֵל ... בַּחֲלוֹם חֶזְיוֹן לַיְלָה״</blockquote><div class="vexp">ה׳ עשוי לתקשר בדרכים שהאדם לא תמיד מזהה.</div></li>
-<li class="verse"><div class="vref">ל״ג, י״ז–י״ח</div><blockquote class="vq">״לְהָסִיר אָדָם מַעֲשֶׂה ... יַחְשֹׂךְ נַפְשׁוֹ מִנִּי שָׁחַת״</blockquote><div class="vexp">מטרת האזהרה להרחיק את האדם ממעשה מזיק.</div></li>
-<li class="verse"><div class="vref">ל״ג, כ״ג</div><blockquote class="vq">״מַלְאָךְ מֵלִיץ אֶחָד מִנִּי אָלֶף״</blockquote><div class="vexp">מתווך שעשוי לסייע לאדם להבין את דרכו ולהינצל.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> ההבדל המרכזי מאליפז הוא הדגש על <strong>מניעת חטא עתידי</strong>. אליפז מדבר גם על ייסורים כמוסר ותיקון.</p></div>
-<h4 class="sub teacher"><span class="badge">מדף המורה</span>עוד שני קטעים שנבחרו במפורש בדף המורה (שטיינזלץ)</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ל״ג, י״ב–י״ד</div><blockquote class="vq">״הֵן זֹאת לֹא צָדַקְתָּ אֶעֱנֶךָּ ... מַדּוּעַ אֵלָיו רִיבוֹתָ כִּי כָל דְּבָרָיו לֹא יַעֲנֶה״</blockquote><div class="vexp">אליהוא טוען שאיוב טועה כשהוא מניח שה׳ אינו משיב לו; ייתכן שה׳ משיב בדרכים שאיוב לא הבחין בהן.</div></li>
-<li class="verse"><div class="vref">ל״ג, ל״א–ל״ג</div><blockquote class="vq">״הַקְשֵׁב אִיּוֹב ... אִם יֵשׁ מִלִּין הֲשִׁיבֵנִי דַבֵּר כִּי חָפַצְתִּי צַדְּקֶךָּ״</blockquote><div class="vexp">אליהוא פותח אפשרות לתגובה ורוצה, לדבריו, להצדיק את איוב; אם אין לו תשובה, הוא מזמין אותו לשמוע וללמוד.</div></li>
-</ul>
-<p><strong>המורה מדגישה שינוי באופי הדיבור:</strong> לא רק עוד טיעון בוויכוח, אלא ניסיון לעבור להקשבה. מסקנה זו קשורה לדף על השתיקה בהמשך ולמענה ה׳.</p>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>הצגת אליהוא כאדם שווה לאיוב קשורה לבקשת איוב לשיח הוגן. אך אליהוא אינו יכול להחליף מפגש ישיר עם ה׳.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>האם כל ייסורים הם עונש לפי אליהוא?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">לא. ייסורים יכולים להיות אזהרה חינוכית לפני חטא או סכנה.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s16" data-ch="s16"><header class="ch-head"><span class="ch-num">ל״ד</span><h3>אליהוא מגן על צדקת ה׳</h3><label class="done"><input type="checkbox" data-done="s16"><span>סיימתי</span></label></header>
-<p>אליהוא טוען שה׳ שופט בצדק, יודע את מעשי האדם ואינו מפלה בין חלש לחזק. הוא ממשיך בכך קו הדומה לדברי בלדד.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ל״ד, י׳</div><blockquote class="vq">״חָלִלָה לָּאֵל מֵרֶשַׁע וְשַׁדַּי מֵעָוֶל״</blockquote><div class="vexp">ה׳ אינו עושה עוול.</div></li>
-<li class="verse"><div class="vref">ל״ד, י״א–י״ב</div><blockquote class="vq">״כִּי פֹעַל אָדָם יְשַׁלֶּם לוֹ ... וְשַׁדַּי לֹא יְעַוֵּת מִשְׁפָּט״</blockquote><div class="vexp">גמול לפי המעשים וצדק במשפט.</div></li>
-<li class="verse"><div class="vref">ל״ד, י״ט–כ״א</div><blockquote class="vq">״לֹא נָשָׂא פְּנֵי שָׂרִים ... כִּי עֵינָיו עַל דַּרְכֵי אִישׁ״</blockquote><div class="vexp">ה׳ אינו נוהג במשוא פנים ויודע הכול.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> השוו לבלדד, ח׳, ג׳ — ״האל יעוות משפט״. אליהוא מבקר את הרעים, אך אינו חולק על עצם העיקרון שה׳ שופט בצדק.</p></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>״מי פקד עליו ארצה״ (י״ג) — ה׳ אינו כפוף לסמכות אחרת. ״איוב לא בדעת ידבר״ (ל״ה) — אליהוא מבקר את דברי איוב.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>במה אליהוא מסכים עם בלדד?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">בהנחה שה׳ אינו מעוות משפט ושהמשפט האלוהי צודק.</div></details></div>
-</div></details>
-</article>
-<article class="chapter" id="s17" data-ch="s17"><header class="ch-head"><span class="ch-num">ל״ה</span><h3>אליהוא מבקש מאיוב להמתין לצדק ה׳</h3><label class="done"><input type="checkbox" data-done="s17"><span>סיימתי</span></label></header>
-<p>בפרק ל״ה אליהוא מתייחס גם לשאלה מה ערכה של צדקות האדם כשהוא סובל. <strong>בדף העבודה של המורה נבחר במפורש קטע אחר כמוקד: ל״ה, י״ג–ט״ז בפירוש שטיינזלץ</strong>. לפיו אליהוא אומר שאיוב טועה כשהוא קובע שה׳ כלל אינו שומע את זעקתו: הדין קיים לפני ה׳, גם אם איוב עדיין אינו רואה אותו, ועליו להמתין.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ל״ה, ג׳</div><blockquote class="vq">״מַה יִּסְכָּן לָךְ מָה אֹעִיל מֵחַטָּאתִי״</blockquote><div class="vexp">מהי התועלת בהימנעות מחטא?</div></li>
-<li class="verse"><div class="vref">ל״ה, ו׳–ז׳</div><blockquote class="vq">״אִם חָטָאתָ מַה תִּפְעָל בּוֹ ... אִם צָדַקְתָּ מַה תִּתֶּן לוֹ״</blockquote><div class="vexp">ה׳ אינו זקוק למעשי האדם.</div></li>
-<li class="verse"><div class="vref">ל״ה, ח׳</div><blockquote class="vq">״לְאִישׁ כָּמוֹךָ רִשְׁעֶךָ וּלְבֶן אָדָם צִדְקָתֶךָ״</blockquote><div class="vexp">המעשים משפיעים על האדם ועל החברה.</div></li>
-<li class="verse"><div class="vref">ל״ה, י״ג</div><blockquote class="vq">״אַךְ שָׁוְא לֹא יִשְׁמַע אֵל וְשַׁדַּי לֹא יְשׁוּרֶנָּה״</blockquote><div class="vexp"><strong>לפי שטיינזלץ בדף המורה</strong>, אליהוא טוען שלשווא אמר איוב שה׳ אינו שומע או רואה את מצוקתו; אין להסיק מהעדר תשובה גלויה שאין השגחה.</div></li>
-<li class="verse"><div class="vref">ל״ה, י״ד</div><blockquote class="vq">״דִּין לְפָנָיו וּתְחוֹלֵל לוֹ״</blockquote><div class="vexp">יש משפט לפני ה׳, ועל איוב לייחל ולהמתין גם כשאין לו הבנה של הדין.</div></li>
-<li class="verse"><div class="vref">ל״ה, ט״ז</div><blockquote class="vq">״וְאִיּוֹב הֶבֶל יִפְצֶה פִיהוּ בִּבְלִי דַעַת מִלִּין יַכְבִּר״</blockquote><div class="vexp">אליהוא מאשים את איוב בכך שהוא מרבה דברים בלי לדעת, מתוך קוצר רוח כלפי הדין האלוהי.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן לפי דף המורה:</strong> עיקר התשובה הנדרשת לפסוקים י״ג–ט״ז הוא שאין לומר שה׳ אינו שומע רק מפני שאין עדיין תשובה גלויה, ושיש להמתין להופעת משפטו. השאלה הכללית על תועלת הצדקות בפסוקים ג׳–ח׳ חשובה להבנת הפרק, אך הובלטה כאן פחות בדף.</p></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p><strong>רקע נוסף, שאינו מוקד קטע שטיינזלץ שנבחר:</strong> ״מרוב עשוקים יזעיקו״ (ט׳) מעלה את שאלת תפילת הסובלים. בפרשנויות אחרות לפסוק י״ג אפשר לדון גם בזעקת שווא, אולם <strong>אין להחליף בכך</strong> את פירוש שטיינזלץ המובא בדף המורה.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>לפי שטיינזלץ, מה תשובת אליהוא לטענת איוב שה׳ אינו מקשיב?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">אליהוא אומר שזו מסקנה חסרת בסיס: יש דין לפני ה׳, גם אם איוב אינו רואה את ביטויו, ועליו לייחל ולהמתין.</div></details></div>
-</div></details>
-</article>
-</section>
-<section class="part" id="s18"><h2 class="part-title"><span class="part-no">חלק ה׳</span>מענה ה׳ לאיוב</h2>
-<article class="chapter" id="s19" data-ch="s19"><header class="ch-head"><span class="ch-num">ל״ח</span><h3>תשובת ה׳ מן הסערה</h3><label class="done"><input type="checkbox" data-done="s19"><span>סיימתי</span></label></header>
-<p><strong>המורה הקדישה לפרק ל״ח דף עבודה מפורט</strong>, אף שהוא לא נכלל ברשימת הפרקים המקורית שנמסרה. לכן יש ללמוד אותו כגשר חשוב להבנת מ״ב; האם יידרש כמקור לבחינה בפני עצמו — תלוי בהנחיות המורה.</p>
-<p>איוב ביקש הסבר ומשפט. ה׳ אכן <strong>עונה לו</strong>, אך <strong>לא מפרט מדוע נפגעו ילדיו</strong>. במקום זאת הוא שואל סדרת שאלות על בריאת העולם, הים, האור, הגשם והכוכבים. השאלות מדגישות שהאדם אינו יודע די כדי לשפוט את מלוא דרכי ההנהגה האלוהית. עצם ההתגלות היא חלק מן המענה: איוב איננו נטוש; ה׳ פונה אליו.</p>
-<h4 class="sub">פסוקים מרכזיים לפי הדף</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">ל״ח, א׳</div><blockquote class="vq">״וַיַּעַן ה׳ אֶת אִיּוֹב מִן הַסְּעָרָה״</blockquote><div class="vexp">ה׳ משיב לאיוב; האופן הנשגב והמבהיל של ההתגלות יוצר יראה.</div></li>
-<li class="verse"><div class="vref">ל״ח, ב׳</div><blockquote class="vq">״מִי זֶה מַחְשִׁיךְ עֵצָה בְמִלִּין בְּלִי דָעַת״</blockquote><div class="vexp">ביקורת על דיבור והסקת מסקנות ללא ידיעה מספקת.</div></li>
-<li class="verse"><div class="vref">ל״ח, ד׳</div><blockquote class="vq">״אֵיפֹה הָיִיתָ בְּיָסְדִי אָרֶץ״</blockquote><div class="vexp">איוב לא היה בבריאה ואינו מכיר את כל סדר העולם.</div></li>
-<li class="verse"><div class="vref">ל״ח, ח׳–י״א</div><blockquote class="vq">״וַיָּסֶךְ בִּדְלָתַיִם יָם ... עַד פֹּה תָבוֹא וְלֹא תֹסִיף״</blockquote><div class="vexp">ה׳ הציב לים גבולות; יש סדר בעולם גם כאשר האדם אינו רואה אותו.</div></li>
-<li class="verse"><div class="vref">ל״ח, כ״ה–כ״ו</div><blockquote class="vq">״מִי פִלַּג לַשֶּׁטֶף תְּעָלָה ... לְהַמְטִיר עַל אֶרֶץ לֹא אִישׁ״</blockquote><div class="vexp">ה׳ דואג גם למקומות שאין בהם אדם. לא כל הנהגת העולם סובבת סביב צרכי האדם.</div></li>
-</ul>
-<h4 class="sub teacher"><span class="badge">מדף המורה</span>המשכו של דף המורה — איוב מ׳, ב׳–ה׳</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">מ׳, ד׳</div><blockquote class="vq">״הֵן קַלֹּתִי מָה אֲשִׁיבֶךָּ יָדִי שַׂמְתִּי לְמוֹ פִי״</blockquote><div class="vexp">איוב שם יד על פיו ומפסיק לטעון. <strong>רמב״ן:</strong> הוא מכיר בשפלות יכולתו להשיב מול ה׳.</div></li>
-<li class="verse"><div class="vref">מ׳, ה׳</div><blockquote class="vq">״אַחַת דִּבַּרְתִּי וְלֹא אֶעֱנֶה וּשְׁתַּיִם וְלֹא אוֹסִיף״</blockquote><div class="vexp"><strong>רשב״ם:</strong> איוב לא יוסיף להשיב ולטעון מול ה׳.</div></li>
-</ul>
-<div class="qa"><div class="q"><span class="tag">שאלת המורה</span>מהו המענה של ה׳ — בתוכן ובעצם המפגש?</div><details class="reveal"><summary>הצגת תשובה אפשרית</summary><div class="a">אין כאן פתרון ישיר של ״מדוע קרה לי״, אלא שינוי נקודת המבט: הכרה בגבולות ידיעת האדם יחד עם הידיעה שה׳ פונה אליו ולא זונח אותו.</div></details></div>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>הדף שואל למה ה׳ אינו עונה באותה צורה שאיוב ביקש, למה ההתגלות היא מן הסערה, ומה איוב לומד מן השאלות על הבריאה. דרך אפשרית להסביר: ה׳ מדגיש שאיוב רואה רק חלק קטן מן המציאות, ולכן אינו יכול לשפוט את מכלול הנהגת העולם. הדמיון האפשרי למעמד התגלות לעם ישראל הוא העמידה ביראה לפני מציאות גדולה מאתנו.</p>
-<p><strong>ר׳ חרל״פ על השתיקה</strong>, שנלמד בדף קודם, מציג את השתיקה כעמדה של הקשבה פנימית. אפשר לקשר זאת למעבר מן הוויכוח בין איוב ורעיו למפגש שבו איוב שם יד על פיו.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מה ההבדל בין שאלה שה׳ לא פותר ישירות לבין מענה שה׳ בכל זאת נותן?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">הסיבה הפרטית לאסונות אינה נמסרת; המענה הוא מפגש עם ה׳ והכרה במגבלות הידיעה.</div></details></div>
-</div></details>
-</article>
-</section>
-<section class="part" id="s20"><h2 class="part-title"><span class="part-no">חלק ו׳</span>סיום הספר</h2>
-<article class="chapter" id="s21" data-ch="s21"><header class="ch-head"><span class="ch-num">מ״ב</span><h3>התגלות ה׳ והנחמה</h3><label class="done"><input type="checkbox" data-done="s21"><span>סיימתי</span></label></header>
-<p>לאחר שה׳ דיבר מן הסערה, איוב מכיר במגבלות ידיעתו. ה׳ מוכיח את הרעים; איוב מתפלל למענם; לאחר מכן הוא זוכה לפיוס, לנחמה אנושית ולשיקום.</p>
-<h4 class="sub">פסוקים מרכזיים</h4>
-<ul class="verses">
-<li class="verse"><div class="vref">מ״ב, ב׳–ג׳</div><blockquote class="vq">״יָדַעְתִּי כִּי כֹל תּוּכָל ... הִגַּדְתִּי וְלֹא אָבִין״</blockquote><div class="vexp">איוב מכיר בכוחו של ה׳ ובמגבלות הבנתו.</div></li>
-<li class="verse"><div class="vref">מ״ב, ה׳</div><blockquote class="vq">״לְשֵׁמַע אֹזֶן שְׁמַעְתִּיךָ וְעַתָּה עֵינִי רָאָתְךָ״</blockquote><div class="vexp">לפי רמב״ן, מעבר מהיכרות דרך שמועה ומסורת להכרה ישירה בעקבות ההתגלות.</div></li>
-<li class="verse"><div class="vref">מ״ב, ו׳</div><blockquote class="vq">״עַל כֵּן אֶמְאַס וְנִחַמְתִּי עַל עָפָר וָאֵפֶר״</blockquote><div class="vexp">איוב נסוג מדבריו הקודמים ומוצא נחמה, לפי פירוש מרכזי בחומר.</div></li>
-<li class="verse"><div class="vref">מ״ב, ז׳</div><blockquote class="vq">״לֹא דִבַּרְתֶּם אֵלַי נְכוֹנָה כְּעַבְדִּי אִיּוֹב״</blockquote><div class="vexp">ה׳ מוכיח את הרעים. לפי רש״י הם האשימו את איוב ללא בסיס והוסיפו לצערו; הוא דיבר מתוך ייסורים.</div></li>
-<li class="verse"><div class="vref">מ״ב, ח׳–י׳</div><blockquote class="vq">״וְאִיּוֹב עַבְדִּי יִתְפַּלֵּל עֲלֵיכֶם ... וַה׳ שָׁב אֶת שְׁבוּת אִיּוֹב״</blockquote><div class="vexp">פיוס ותפילה בעד הרעים, ולאחריהם שיקום.</div></li>
-<li class="verse"><div class="vref">מ״ב, י״א–י״ב</div><blockquote class="vq">״וַיָּנֻדוּ לוֹ וַיְנַחֲמוּ אֹתוֹ ... וַה׳ בֵּרַךְ אֶת אַחֲרִית אִיּוֹב מֵרֵאשִׁתוֹ״</blockquote><div class="vexp">נחמה אנושית, רכוש כפול ומשפחה מחודשת.</div></li>
-</ul>
-<div class="callout exam"><span class="ico" aria-hidden="true">✎</span><p><strong>למבחן:</strong> לפי מדריך החמ״ד, תשובת ה׳ אינה מספקת הסבר מפורט לכל אסון, אלא מלמדת את איוב על גבולות ידיעתו ומביאה לקרבת אלוקים. יש להכיר את פירוש רש״י לתוכחת הרעים ואת העיקרון <strong>״אין אדם נתפס בשעת צערו״</strong>. רכוש וילדים חדשים אינם מוחקים את האובדן הקודם; מודגשים המחילה, הנחמה והיכולת לבנות חיים חדשים.</p></div>
-<h4 class="sub teacher"><span class="badge">מדף המורה</span>שלוש גישות מפורשות בדף המורה להסבר נחמת איוב (לבחירה ולהשוואה)</h4>
-<ol>
-<li><strong>רמב״ם, מורה נבוכים:</strong> קודם לכן איוב ראה בבריאות, בעושר ובילדים את שיא האושר, והכיר את ה׳ בעיקר מפי השמועה. אחרי ההתגלות הוא מבין שהאושר העמוק הוא <strong>ידיעת ה׳</strong>, שאינה תלויה לגמרי בטובות החיצוניות. לכן ״לשמע אזן שמעתיך ועתה עיני ראתך״ מבטא שינוי של עולם הערכים, והנחמה היא פרי ההכרה הזאת.</li>
-<li><strong>הרב יוסף דוב סולובייצ׳יק, קול דודי דופק:</strong> איוב עבר משאלת <strong>הגורל — ״מדוע דווקא לי קרו הייסורים?״</strong>, שעליה אין לאדם תשובה מלאה, לשאלת <strong>הייעוד — ״מה עלי לעשות עכשיו עם הסבל? כיצד אצמח ואתקן?״</strong>. האדם אינו יכול תמיד להבין את הסיבה, אך יכול לבחור את תגובתו ואת אחריותו.</li>
-<li><strong>הרב רבינוביץ׳, בקטע המובא בדף:</strong> חוסר היכולת להבין לגמרי את מידת הדין <strong>שומר על הרגישות המוסרית</strong> של האדם. מי שהיה בטוח שהוא מבין מדוע סובל הזולת עלול להפסיק לרחם עליו ואף להצדיק את כאבו. השוואתו למשה, שזעק על סבל ישראל, מדגישה שהאנושיות מחייבת חמלה גם בלי הסבר.</li>
-</ol>
-<p><strong>״סוד האמפתיה״ — הרב רפי פוירשטיין, בעקבות הרב סולובייצ׳יק:</strong> זו קריאה חינוכית של תהליך איוב: בתחילת הספר תיאורו ממוקד בצדקתו, במשפחתו וברכושו; בסופו הוא <strong>מתפלל בעד רעיו שפגעו בו</strong>, ומגלה אחריות גם כלפי אחרים. יש להציג זאת <strong>כפרשנות של הרב פוירשטיין</strong>, לא כעובדה שהכתוב מוכיח על כל מעשיו בעבר.</p>
-<p><strong>שינוי ביחס לסביבה — פסוקים י׳–ט״ו:</strong> קרובי איוב באים לאכול עמו ולנחמו; הוא נותן לבנותיו — <strong>ימימה, קציעה וקרן הפוך</strong> — שמות המוזכרים במפורש וגם <strong>נחלה בתוך אחיהן</strong> (מ״ב, ט״ו). הפרטים החדשים בתיאור המשפחה והשיתוף החברתי חשובים לשאלת המורה: מה התאפשר בשיקום שלא תואר כך בתחילה?</p>
-<h4 class="sub">רמב״ן — שלוש דרכים להסביר את ״שב את שבות איוב״ לנוכח האובדן:</h4>
-<ol>
-<li><strong>השבה כתחליף:</strong> ״שבות״ יכולה לציין שה׳ נתן לאדם תמורה למה שאבד, גם בלי להחזיר את האובדן המקורי עצמו.</li>
-<li><strong>השבת חלק מהרכוש בפועל:</strong> לפי אפשרות שמציג הרמב״ן, השבאים והכשדים החזירו מקנה שנלקח, ואילו למי שמתו ניתנו מחליפים — ילדים ועבדים חדשים.</li>
-<li><strong>אפשרות נועזת יותר — מצג השטן:</strong> השטן לא המית את הכול, אלא העביר את הרכוש ובני המשפחה והביא שליחים שגרמו לאיוב להאמין באובדנם. לאחר הניסיון הוחזרו. זו <strong>אפשרות פרשנית של הרמב״ן</strong>, ולא מסקנה ודאית מן הסיפור.</li>
-</ol>
-<p><strong>השאלה ״סוף טוב הכול טוב?״:</strong> רכוש וילדים חדשים אינם מבטלים מאליהם את הכאב על מי שאבדו. שלוש האפשרויות של הרמב״ן מנסות להתמודד עם הקושי, בדרכים שונות.</p>
-<details class="deep"><summary><span>העמקה ותרגול</span><span class="hint">לפתיחה</span></summary><div class="deep-body">
-<p>איוב מתפלל בעד מי שפגעו בו, ובכך מביע מחילה וגדלות נפש. ה׳ דורש מן הרעים להקריב קרבנות ולהיעזר בתפילת איוב. בסיום רכוש איוב כפול ונולדים לו שוב שבעה בנים ושלוש בנות. אליהוא אינו מוזכר בתוכחת שלושת הרעים, אך היעדרו אינו מוכיח שכל דבריו אושרו.</p>
-<div class="qa"><div class="q"><span class="tag">שאלה</span>מהו השינוי המרכזי של איוב בסיום?</div><details class="reveal"><summary>הצגת תשובה</summary><div class="a">הוא מכיר במגבלות ידיעתו וזוכה לקרבת ה׳; אחר כך מתאפשרים מחילה, נחמה ושיקום.</div></details></div>
-</div></details>
-</article>
-</section>
-<section class="part selfcheck" id="s22"><h2 class="part-title plain">בדיקה עצמית קצרה לפי שאלות המורה</h2>
-<div class="table-wrap"><table><thead><tr><th>דמות</th><th>הטענה המרכזית</th><th>הדגש</th></tr></thead><tbody><tr><td><strong>אליפז</strong></td><td>סבל נובע ממעשים רעים או משמש תוכחה לתיקון.</td><td>ניסיון אישי, חזיון, ייסורים כמוסר</td></tr><tr><td><strong>בלדד</strong></td><td>ה׳ אינו מעוות משפט; הצלחת הרשע זמנית.</td><td>מסורת הדורות, משלי צמחים</td></tr><tr><td><strong>איוב</strong></td><td>סבל אינו מוכיח חטא; גם צדיק עלול לסבול.</td><td>דרישה להוכחה ולהבנת הצדק</td></tr><tr><td><strong>אליהוא</strong></td><td>ייסורים עשויים להזהיר ולמנוע חטא עתידי.</td><td>ביקורת על איוב ועל הרעים</td></tr><tr><td><strong>איוב בסיום</strong></td><td>לאדם אין ידיעה מלאה של דרכי ה׳.</td><td>קרבת אלוקים, מחילה ונחמה</td></tr></tbody></table></div>
-<h4 class="sub">שבע שאלות לבדיקה עצמית — נסו לומר לכל אחת תשובה קצרה בצירוף פסוק:</h4>
-<ol>
-<li><label class="chk"><input type="checkbox" data-q="319"><span>מהם שלושת סוגי הרע אצל הרמב״ם, ולאיזו טענה של אליפז הם קשורים?</span></label></li>
-<li><label class="chk"><input type="checkbox" data-q="320"><span>מה מלמדים הפסוקים ״פחד פחדתי״ ו״לא שלוותי״ על עולמו הפנימי של איוב?</span></label></li>
-<li><label class="chk"><input type="checkbox" data-q="321"><span>כיצד מגיב איוב לטענותיו השונות של אליפז, ומה מוסיף הרב קוק ביחס לחמלה?</span></label></li>
-<li><label class="chk"><input type="checkbox" data-q="322"><span>מה הבשורה שבתפיסת הגמול של בלדד, ומה חסר בה כשמביאים בחשבון חסד ורחמים?</span></label></li>
-<li><label class="chk"><input type="checkbox" data-q="323"><span>כיצד הפסוקים ״תם ורשע הוא מכלה״ ו״לא יש בינינו מוכיח״ תומכים בתשובת איוב לבלדד?</span></label></li>
-<li><label class="chk"><input type="checkbox" data-q="324"><span>כיצד מפרש שטיינזלץ את ״אך שוא לא ישמע אל״ בפרק ל״ה, ומה מוסיפה ההתגלות בפרק ל״ח?</span></label></li>
-<li><label class="chk"><input type="checkbox" data-q="325"><span>השוו בין רמב״ם, הרב סולובייצ׳יק והרב רבינוביץ׳ בהבנת נחמת איוב. כיצד נקשרת תפילתו בעד רעיו לאמפתיה?</span></label></li>
-</ol>
-<p><strong>דוגמה לתשובת פסוק:</strong> אם נשאלים על ״האל יעוות משפט״ (ח׳, ג׳), יש להסביר שבלדד שואל שאלה רטורית שהתשובה עליה שלילית. הוא מניח שה׳ אינו עושה עוול, ולכן מחפש הסבר מוסרי לסבלו של איוב ואף מעלה אפשרות שבניו חטאו. כך הפסוק תומך בתורת הגמול של בלדד.</p>
-<p><strong>מקור המיקוד המוביל:</strong> ״איוב – דפי עבודה״ שנמסרו על ידי המורה (קובץ Eyov.md), ובו שאלות מנחות, פסוקים מודגשים, קטעים מרמב״ם, הרב קוק, הרב סולובייצ׳יק, הרב רבינוביץ׳, הרב פוירשטיין ופרשנות שטיינזלץ. <strong>חלק משאלות הדף הן שאלות פתוחות</strong>; תשובות המובאות כאן הן תשובות מוצעות לפי הטקסט, ולא מפתח רשמי של המורה.</p>
-</section>
-<section class="part sources" id="s23"><h2 class="part-title plain">מקורות להמשך לימוד</h2>
-<ul class="links">
-<li><a href="https://meyda.education.gov.il/files/Pop/0files/bible-Hamad/high-school/hegber-units/eyov-mavo.pdf" target="_blank" rel="noopener">משרד החינוך — מבוא ליחידת הגמול</a></li>
-<li><a href="https://meyda.education.gov.il/files/Pop/0files/bible-Hamad/high-school/hegber-units/eyov-4-5-elipaz.pdf" target="_blank" rel="noopener">משרד החינוך — אליפז פרקים ד׳–ה׳</a></li>
-<li><a href="https://meyda.education.gov.il/files/Pop/0files/bible-Hamad/high-school/hegber-units/eyov-8.pdf" target="_blank" rel="noopener">משרד החינוך — בלדד פרק ח׳</a></li>
-<li><a href="https://meyda.education.gov.il/files/Pop/0files/bible-Hamad/high-school/hegber-units/eyov-9.pdf" target="_blank" rel="noopener">משרד החינוך — תשובת איוב פרק ט׳</a></li>
-<li><a href="https://meyda.education.gov.il/files/Pop/0files/bible-Hamad/high-school/hegber-units/perek-42.pdf" target="_blank" rel="noopener">משרד החינוך — סיום פרק מ״ב</a></li>
-<li><a href="https://www.hatanakh.com/content/%D7%AA%D7%A7%D7%A6%D7%99%D7%A8-%D7%90%D7%99%D7%95%D7%91-%D7%A4%D7%A8%D7%A7-%D7%9C%D7%91" target="_blank" rel="noopener">מכללת הרצוג — פרק ל״ב</a></li>
-<li><a href="https://etzion.org.il/he/tanakh/ketuvim/sefer-iyov/33-elihu-az-yigleh-ozen-anashim" target="_blank" rel="noopener">ישיבת הר עציון — אליהוא פרק ל״ג</a></li>
-<li><a href="https://etzion.org.il/he/tanakh/ketuvim/sefer-iyov/35-36-mah-mechadesh-elihu" target="_blank" rel="noopener">ישיבת הר עציון — מה מחדש אליהוא</a></li>
-</ul>
-</section>
-
-  <footer>סיכום לימודי לפי דפי העבודה של המורה. התשובות המוצעות אינן מפתח רשמי.</footer>
+  </header>
+<section class="part" id="big" data-part="big">
+<header class="part-head"><span class="chips">כל הספר</span><h2>התמונה הגדולה</h2></header>
+<div class="intro"><p><strong>שאלת היסוד של הספר: איך ייתכן שצדיק סובל, אם ה׳ מנהיג את העולם בצדק?</strong> הרעים עונים לפי <strong>תורת הגמול</strong>: מי שסובל – כנראה חטא. הקורא יודע מהפרק הראשון שזה לא נכון אצל איוב.</p><p>לאורך הספר עובר איוב שלושה שינויים.</p></div>
+<ol class="qs">
+<li class="qcard" data-q="big-1"><div class="qtext"><span class="qn">1</span><div>מהם שלושת השינויים שעובר איוב לאורך הספר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>1. מפחד ופנקסנות לאמון.</strong> בהתחלה איוב עובד את ה׳ מתוך פחד וחשבון: מקריב קרבנות על ילדיו "ליתר ביטחון" (א׳, ה׳) ואומר "פחד פחדתי ויאתיני" (ג׳, כ״ה). בסוף, אחרי המפגש עם ה׳: "לשמע אזן שמעתיך ועתה עיני ראתך" (מ״ב, ה׳) – קשר של אמון, גם בלי להבין.<br><strong>2. מוויכוח להקשבה.</strong> איוב והרעים מתווכחים מי צודק. אליהוא מבקש "הקשב... החרש" (ל״ג, ל״א), ה׳ עונה מן הסערה, ואיוב שם יד על פיו (מ׳, ד׳).<br><strong>3. אל האחר – גם אל מי שפגע בו.</strong> איוב תמיד עזר לחלשים (כ״ט, י״ב–י״ז), אבל בסוף הוא מתפלל דווקא על הרעים שפגעו בו – ורק אז ה׳ משיב את שבותו (מ״ב, י׳).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="big-2"><div class="qtext"><span class="qn">2</span><div>מה אומר כל אחד מהדוברים, במשפט אחד?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>אליפז:</strong> אתה סובל כי עשית משהו; הייסורים הם מוסר, פנה לה׳ והוא ירפא.<br><strong>בלדד:</strong> ה׳ לא מעוות משפט – ילדיך מתו כי חטאו; אם אתה ישר, ה׳ ישקם אותך.<br><strong>איוב:</strong> אני לא חטאתי; הסבל לא מבחין בין צדיק לרשע, ואין לי איך לעמוד במשפט מול ה׳.<br><strong>אליהוא:</strong> ה׳ כן מדבר עם האדם, גם דרך ייסורים שמזהירים אותו; עליך להקשיב ולחכות.<br><strong>ה׳:</strong> לא מסביר את הסבל. מראה לאיוב כמה העולם גדול ממה שהוא מבין – ובעצם המפגש אומר לו: אני כאן.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="ch1" data-part="ch1">
+<header class="part-head"><span class="chips">פרקים א׳–ב׳</span><h2>הניסיון</h2></header>
+<div class="intro"><p>איוב הוא צדיק ועשיר מאוד. בשמים השטן טוען שאיוב עובד את ה׳ רק בגלל השכר. ה׳ מרשה לנסות אותו פעמיים: בפעם הראשונה איוב מאבד את רכושו ואת עשרת ילדיו, ובפעם השנייה הוא חולה במחלת עור קשה. הוא לא מקלל את ה׳. שלושה חברים באים ויושבים איתו שבעה ימים בשתיקה.</p></div>
+<ol class="qs">
+<li class="qcard" data-q="ch1-1"><div class="qtext"><span class="qn">1</span><div>איך מתואר איוב בפסוק הראשון, ולמה זה חשוב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"תם וישר וירא אלהים וסר מרע" (א׳, א׳) – שלם, ישר, ירא את ה׳ ומתרחק מרע. המספר עצמו אומר שאיוב צדיק, ולכן הקורא יודע מראש שהסבל שלו <strong>אינו עונש</strong>. כל פעם שהרעים יגידו שאיוב חטא – אנחנו יודעים שהם טועים.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-2"><div class="qtext"><span class="qn">2</span><div>מה איוב עושה אחרי כל משתה של ילדיו, ומה זה מלמד עליו?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הוא קם מוקדם ומקריב עולה על כל אחד מהם: "אולי חטאו בני... ככה יעשה איוב כל הימים" (א׳, ה׳). הוא מקריב "ליתר ביטחון", בכל פעם מחדש. זו העדות לכך שגם בזמן השפע הוא חי בחשש.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-3"><div class="qtext"><span class="qn">3</span><div>מה טוען השטן?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"החנם ירא איוב אלהים?" (א׳, ט׳) – האם איוב ירא את ה׳ בלי לקבל משהו בתמורה? לדבריו, ה׳ שומר עליו ומברך אותו ("הלא אתה שכת בעדו" – גידרת אותו מכל צד, א׳, י׳), ואם ייקח ממנו הכול – איוב יקלל.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-4"><div class="qtext"><span class="qn">4</span><div>מהם שני הניסיונות, ואיך איוב מגיב לכל אחד?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>ניסיון ראשון – רכוש וילדים:</strong> ארבעה שליחים מגיעים זה אחר זה ("עוד זה מדבר וזה בא"). איוב קורע בגדיו ואומר "ה׳ נתן וה׳ לקח, יהי שם ה׳ מבורך" (א׳, כ״א).<br><strong>ניסיון שני – הגוף:</strong> שחין מכף רגל ועד קדקד. אשתו אומרת "ברך אלהים ומת" (ברך = כאן במובן קלל). איוב עונה: "גם את הטוב נקבל מאת האלהים ואת הרע לא נקבל?" (ב׳, י׳).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-5"><div class="qtext"><span class="qn">5</span><div>מהם ארבעת האסונות? בידי מי בא כל אחד, ומה מלמד הסדר שלהם?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>1.</strong> שבא (בני אדם) לוקחים את הבקר והאתונות. <strong>2.</strong> "אש אלהים נפלה מן השמים" – שורפת את הצאן. <strong>3.</strong> כשדים (בני אדם) לוקחים את הגמלים. <strong>4.</strong> "רוח גדולה" מפילה את הבית על הילדים.<br><strong>ההתחלפות</strong> בין בני אדם לכוחות השמים והטבע, מכל הכיוונים, מראה שאין לאיוב מנוס.<br><strong>הסדר כמעט הפוך</strong> לתיאור העושר בפסוקים ב׳–ג׳ (שם הילדים ראשונים): האסונות מתחילים ברכוש ומסתיימים בילדים – המכה הקשה ביותר באה אחרונה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-6"><div class="qtext"><span class="qn">6</span><div>האם התקיימו שתי התחזיות של השטן: "שלח נא ידך וגע בכל אשר לו" ו"אם לא על פניך יברכך" (א׳, י״א)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>הראשונה – כן:</strong> ה׳ הרשה, ואיוב איבד הכול. <strong>השנייה – לא:</strong> איוב לא קילל אלא בירך באמת: "יהי שם ה׳ מבורך" (א׳, כ״א).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-7"><div class="qtext"><span class="qn">7</span><div>ממי לקוחים שני חלקי המשפט של אשת איוב, "עודך מחזיק בתמתך, ברך אלהים ומת" (ב׳, ט׳)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"<strong>עודך מחזיק בתמתך</strong>" – אלה מילותיו של <strong>ה׳</strong> על איוב: "ועודנו מחזיק בתמתו" (ב׳, ג׳). "<strong>ברך</strong> (= קלל) <strong>אלהים</strong>" – זו התחזית של <strong>השטן</strong>: "אם לא אל פניך יברכך" (א׳, י״א; ב׳, ה׳). כלומר האישה משמיעה לאיוב את האתגר של השטן.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-8"><div class="qtext"><span class="qn">8</span><div>מה ההבדל בין התגובה בפרק א׳ לתגובה בפרק ב׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">בפרק א׳ איוב <strong>מברך</strong> את ה׳ במפורש. בפרק ב׳ הוא רק <strong>מקבל</strong>, והכתוב אומר "בכל זאת לא חטא איוב <strong>בשפתיו</strong>".<br><strong>רש״י:</strong> "בשפתיו – אבל בלבו חטא" – כבר עכשיו משהו נסדק בלב (כך גם רבא, בבא בתרא ט״ז ע״א).<br><strong>ראב״ע:</strong> המילה רומזת לעתיד – בהמשך, מרוב צערו, איוב יחטא גם בשפתיו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-9"><div class="qtext"><span class="qn">9</span><div>מה החברים עושים כשהם מגיעים, ולמה זה חשוב בהמשך?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הם בוכים, קורעים בגדים ויושבים איתו על הארץ שבעה ימים, "ואין דבר אליו דבר כי ראו כי גדל הכאב מאד" (ב׳, י״ג). כלומר הם התחילו נכון – בנוכחות ובשתיקה. הבעיה תתחיל כשהם יפתחו את הפה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-10"><div class="qtext"><span class="qn">10</span><div>מה פירוש המילה "שטן" במקרא?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">מי שמתנגד, עוצר או מקטרג. למשל המלאך שעומד מול בלעם "לשטן לו" (במדבר כ״ב, כ״ב) – כדי לעצור אותו. בספר איוב השטן הוא מלאך מקטרג שפועל רק ברשות ה׳ ובגבולות שה׳ קובע ("רק אליו אל תשלח ידך").</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch1-11"><div class="qtext"><span class="qn">11</span><div>מהי האירוניה הדרמטית בספר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הקורא יודע מה קרה בשמים (הוויכוח עם השטן), אבל איוב והרעים לא יודעים. לכן הם מחפשים חטא שאין, ואיוב מחפש צדק שהוא לא יכול לראות.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="ch3" data-part="ch3">
+<header class="part-head"><span class="chips">פרק ג׳</span><h2>קינת איוב</h2></header>
+<div class="intro"><p>אחרי שבעה ימי שתיקה איוב פותח את פיו ומקלל את <strong>יום הולדתו</strong>. הוא לא מקלל את ה׳ – הוא מקלל את החיים שלו. הוא שואל שוב ושוב "למה?": למה נולדתי, למה לא מתתי מיד, למה ה׳ נותן חיים לאנשים שסובלים. המוות נראה לו כמקום של מנוחה ושוויון.</p></div>
+<ol class="qs">
+<li class="qcard" data-q="ch3-1"><div class="qtext"><span class="qn">1</span><div>את מי איוב מקלל, ומה המשמעות?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">את יום הולדתו ואת הלילה שבו נוצר: "יאבד יום אולד בו" (ג׳, ג׳) – הלוואי שהיום הזה יימחק. הוא <strong>לא</strong> מקלל את ה׳, כמו שהשטן צפה. הכעס שלו מופנה אל החיים עצמם.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch3-2"><div class="qtext"><span class="qn">2</span><div><span class="badge">דף המורה</span>אופן: באילו אמצעים ספרותיים איוב משתמש?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>שאלות רטוריות וחזרה על "למה"</strong> (פס׳ י״א, י״ב, כ׳).<br><strong>היפוך אור וחושך:</strong> בדרך כלל אור הוא טוב; אצל איוב החושך והמוות הם מנוחה, והאור (החיים) הוא סבל. הוא מבקש שהיום שבו נולד יהיה חושך.<br><strong>חזרה משולשת:</strong> "לא שלותי ולא שקטתי ולא נחתי" (כ״ו).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch3-3"><div class="qtext"><span class="qn">3</span><div><span class="badge">דף המורה</span>תוכן: מה איוב חושב על החיים של האדם הסובל? איפה רואים את זה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">שבמצב כמו שלו החיים הפכו לסבל, ועדיף היה לא להיוולד. "למה יתן לעמל אור וחיים למרי נפש" (כ׳) – למה ה׳ נותן חיים לסובלים? הם "מחכים למות ואיננו" (כ״א) ושמחים כשהם מוצאים קבר (כ״ב). המוות נראה לו כחופש: שם "ינוחו יגיעי כח" ו"עבד חפשי מאדניו" (י״ז–י״ט).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch3-4"><div class="qtext"><span class="qn">4</span><div>מה המשמעות של "ויסך אלוה בעדו" (ג׳, כ״ג)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">איוב מרגיש שה׳ סגר עליו מכל צד ואין לו דרך. השוו לשטן בפרק א׳: "הלא אתה <strong>שכת בעדו</strong>" (א׳, י׳).<br><strong>דמיון:</strong> שניהם אומרים שה׳ גידר את איוב מכל צד.<br><strong>הבדל:</strong> אצל השטן הגדר היא <strong>הגנה</strong> שמביאה שפע; אצל איוב היא <strong>כלא</strong> שאין ממנו מוצא.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch3-5"><div class="qtext"><span class="qn">5</span><div>מה הדמיון בין יונה ("טוב מותי מחיי", יונה ד׳, ג׳) לבין איוב בפרק ג׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">שניהם מבקשים למות ואומרים שהמוות עדיף על החיים. אצל איוב: "למה לא מרחם אמות" (ג׳, י״א), "המחכים למות ואיננו" (ג׳, כ״א). <strong>ההבדל:</strong> יונה רוצה למות כי ה׳ ריחם על נינוה; איוב – בגלל הסבל שלו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch3-6"><div class="qtext"><span class="qn">6</span><div><span class="badge">דף המורה</span>ויקטור פרנקל: מה הדמיון והשוני בינו לבין איוב בסוף פרק ג׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>דמיון:</strong> שניהם איבדו כמעט הכול – משפחה, רכוש, בריאות – ועוברות להם מחשבות של ייאוש ושל "למה".<br><strong>שוני:</strong> פרנקל, שעבר את מחנות הריכוז, לימד שאי אפשר לבחור את מה שקורה לנו, אבל אפשר לבחור <strong>איך להגיב</strong> ולמצוא משמעות גם בסבל. איוב בסוף פרק ג׳ עדיין נסחף אחרי המחשבות: ה"למה" שלו מופנה לעבר (למה נולדתי) ומוביל לרצון למות.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch3-7"><div class="qtext"><span class="qn">7</span><div><span class="badge">דף המורה</span>"כי פחד פחדתי ויאתיני... לא שלותי ולא שקטתי" (כ״ה–כ״ו): מה זה מלמד על מצבו הנפשי לפני הניסיון ואחריו?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">במילים פשוטות: "ממה שפחדתי – זה מה שבא עליי. מעולם לא היה לי שקט." <strong>לפני</strong> הניסיון, גם בזמן השפע, איוב לא היה רגוע – הוא חי בחשש מתמיד שמשהו ייקח ממנו. <strong>אחרי</strong> – הפחד התגשם, ועכשיו "ויבא רגז" (סערה).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch3-8"><div class="qtext"><span class="qn">8</span><div><span class="badge">דף המורה</span>היכן בפרקים הקודמים רואים עדות למצב הזה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">בפרק א׳: אחרי כל משתה של ילדיו הוא מקריב עולות, "אולי חטאו בני... ככה יעשה איוב כל הימים" (א׳, ה׳). הוא אף פעם לא בטוח, ו"מבטח" את ילדיו מראש.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch3-9"><div class="qtext"><span class="qn">9</span><div><span class="badge">דף המורה</span>מה גורם לאדם לחיות כך?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">קשר עם ה׳ שבנוי על <strong>פחד וחשבון</strong> ("פנקסנות"): אם אעשה הכול נכון – אהיה מוגן, ובכל רגע אפשר לטעות בחשבון ולהפסיד. מי שחי כך לא יכול לנוח באמת.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="ch45" data-part="ch45">
+<header class="part-head"><span class="chips">פרקים ד׳–ה׳</span><h2>אליפז</h2></header>
+<div class="intro"><p>אליפז הוא הראשון והעדין מבין הרעים. הוא פותח במחמאה – "אתה חיזקת אחרים" – ואז אומר שצדיק אף פעם לא נאבד, ומי שזורע רע קוצר רע. הוא מספר על חזיון לילה שלמד ממנו שאין אדם צדיק לגמרי לפני ה׳. בסוף הוא מציע: פנה אל ה׳ וקבל את הייסורים כמוסר – ה׳ מכאיב, אבל גם מרפא.</p></div>
+<ol class="qs">
+<li class="qcard teacher" data-q="ch45-1"><div class="qtext"><span class="qn">1</span><div><span class="badge">דף המורה</span>מהן הטענות המרכזיות של אליפז?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>1.</strong> "הנה יסרת רבים... כי עתה תבוא אליך ותלא" (ד׳, ג׳–ה׳) – אתה עודדת אחרים, ועכשיו כשזה הגיע אליך נשברת.<br><strong>2.</strong> "זכר נא מי הוא נקי אבד" (ד׳, ז׳) – תיזכר: מתי צדיק נאבד? ו"חורשי און וזורעי עמל יקצרהו" (ד׳, ח׳) – מי שזורע רע, קוצר רע.<br><strong>3.</strong> "האנוש מאלוה יצדק" (ד׳, י״ז) – אין אדם צדיק לגמרי לפני ה׳ (מתוך חזיון הלילה).<br><strong>4.</strong> "אשרי אנוש יוכחנו אלוה... כי הוא יכאיב ויחבש" (ה׳, י״ז–י״ח) – הייסורים הם מוסר; ה׳ מכאיב ואחר כך מרפא. לכן: "אני אדרש אל אל" (ה׳, ח׳) – במקומך הייתי פונה לה׳.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch45-2"><div class="qtext"><span class="qn">2</span><div>מה אפשר לשמוע בפסוק "הלא יראתך כסלתך, תקותך ותם דרכיך" (ד׳, ו׳)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">במילים פשוטות: "הרי יראת ה׳ שלך היא הביטחון שלך, והיושר שלך הוא התקווה שלך." אפשר לשמוע בזה עידוד, אבל גם עקיצה (כך המלבי״ם): העבודה שלך הייתה מ<strong>יראת העונש</strong> ובשביל ביטחון ושכר – לא מיראת ה׳ עצמו. וההוכחה: כשבאו הייסורים, התחלת לערער על השגחת ה׳ – סימן שהאמונה לא הייתה שלמה. זו בדיוק הטענה של השטן.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch45-3"><div class="qtext"><span class="qn">3</span><div>"זכר נא מי הוא נקי אבד" (ד׳, ז׳): איזו דוגמה מהתנ״ך מחזקת את אליפז?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">נח – שניצל כשכל דורו נאבד; לוט – שניצל מהפיכת סדום; ישראל – שניצלו במכת בכורות.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-4"><div class="qtext"><span class="qn">4</span><div><span class="badge">דף המורה</span>מה אליפז אומר, ומה הוא בעצם מנסה לומר בסאבטקסט? ולמה דווקא כך?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הוא לא אומר "חטאת". אבל כשהוא שואל "מי הוא נקי אבד", הוא בעצם אומר: <strong>אם אתה נאבד – כנראה אתה לא נקי.</strong> הוא אומר את זה ברמז כי הוא רוצה להישאר מנומס ומנחם, ובעיקר כי הוא צריך שהעולם יישאר צודק: אם צדיק יכול לסבול סתם, גם הוא עצמו לא מוגן.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-5"><div class="qtext"><span class="qn">5</span><div><span class="badge">דף המורה</span>לאיזו טענה של איוב אליפז מתייחס – שהעולם רע, או שהשגחת ה׳ אינה צודקת?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">איוב בפרק ג׳ אמר בעיקר <strong>שהחיים רעים</strong>; הוא לא האשים את ה׳ בעוול במפורש. אליפז עונה כאילו איוב ערער על <strong>צדק ההשגחה</strong>, ומגן על ה׳. כלומר הוא שומע מה שאיוב לא אמר – ומפספס את מה שאיוב כן אמר: כואב לי.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-6"><div class="qtext"><span class="qn">6</span><div><span class="badge">דף המורה</span>מה העמדה של אליפז מול איוב, ומה אפשר לשמוע בה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הוא מדבר מלמעלה, כמו מורה או מטיף: "זכר נא", "כאשר ראיתי", חזיון לילה. הוא מסביר במקום להקשיב. שאלות שאפשר לשאול: האם הוא שמע מה איוב אמר? האם מי שכואב לו צריך עכשיו הסבר, או מישהו שיהיה איתו?</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-7"><div class="qtext"><span class="qn">7</span><div><span class="badge">דף המורה</span>מה את אומרת על סוג כזה של חברות?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">(שאלה אישית – כיוון אפשרי:) החברים עשו דבר נכון כשבאו וישבו שבעה ימים בשתיקה. אבל כשהתחילו לדבר, העדיפו להגן על השקפת העולם שלהם מאשר להיות עם החבר. חברות אמיתית היא להיות עם הכאב, לא למהר לתקן או להסביר אותו. בגמרא (בבא מציעא נ״ח ע״ב) דברי רעי איוב הם דוגמה ל<strong>אונאת דברים</strong> – פגיעה באדם במילים.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-8"><div class="qtext"><span class="qn">8</span><div><span class="badge">דף המורה</span>הרמב״ם: מה לדבריו המקור לטעות שהעולם רע?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">האדם מסתכל על העולם רק מנקודת המבט של עצמו, כאילו כל העולם נברא בשבילו – ולכן כל מה שרע לו נראה לו כמו "העולם רע". בנוסף, רוב הרע בא מהאדם עצמו, בעיקר מהרדיפה אחרי מותרות שאין לה סוף – ובכל זאת הוא מתלונן על ה׳.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-9"><div class="qtext"><span class="qn">9</span><div><span class="badge">דף המורה</span>איך אפשר לבסס זאת על פרק ג׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">איוב מסיק מהסבל האישי שלו מסקנה על החיים בכלל: "למה יתן לעמל אור" – מהכאב הפרטי שלו הוא קובע שעדיף היה שהחיים לא היו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-10"><div class="qtext"><span class="qn">10</span><div><span class="badge">דף המורה</span>מהם שלושת סוגי הרע לפי הרמב״ם, ומהו העיקרי?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>1. רע מטבע החומר:</strong> מחלות, מומים, אסונות טבע – הכרחי, כי כל מה שנולד גם כלה.<br><strong>2. רע שבני אדם עושים זה לזה:</strong> רצח, שוד, מלחמות.<br><strong>3. רע שאדם גורם לעצמו:</strong> אכילה, שתייה ותאוות מופרזות, רדיפה אחרי מותרות.<br><strong>העיקרי הוא השלישי</strong> – "זה הרוב".</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-11"><div class="qtext"><span class="qn">11</span><div><span class="badge">דף המורה</span>לאיזה סוג רע מתייחס אליפז?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לסוג השלישי – רע שאדם מביא על עצמו במעשיו: "חורשי און וזורעי עמל יקצרהו" (ד׳, ח׳), "כי אדם לעמל יולד" (ה׳, ז׳).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch45-12"><div class="qtext"><span class="qn">12</span><div><span class="badge">דף המורה</span>לאיזו שאלה אליפז והרמב״ם לא מתייחסים?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>צדיק ורע לו</strong> – אדם שלא חטא ובכל זאת סובל. זה בדיוק המקרה של איוב, שהכתוב קבע שהוא "תם וישר" (א׳, א׳).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch45-13"><div class="qtext"><span class="qn">13</span><div>איזו התנהגות של איוב אליפז מבקר בתחילת פרק ה׳ (פס׳ א׳–ב׳), ומה הוא רוצה שישתנה (פס׳ ח׳)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הוא מבקר את <strong>התלונה והכעס</strong> של איוב: "כי לאויל יהרג כעש" (ה׳, ב׳) – הכעס הורג את הטיפש; התלונות לא יועילו. לפי פסוק ח׳ – "אולם אני אדרש אל אל" – הוא רוצה שאיוב יהפוך את זעקת הכאב ל<strong>תפילה</strong> אל ה׳ (וגם ימעט בדיבור – רש״י).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch45-14"><div class="qtext"><span class="qn">14</span><div>מה פירוש "כי לא יצא מעפר און... כי אדם לעמל יולד" (ה׳, ו׳–ז׳)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">צרות לא צומחות מהאדמה מעצמן, בלי סיבה – האדם הוא שמביא אותן על עצמו. ולפי המלבי״ם: האדם נולד כדי לעמול ולהשתדל, ולכן ההצלחה תלויה גם במעשיו ולא רק בגורל.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch45-15"><div class="qtext"><span class="qn">15</span><div>"עשה גדלות ואין חקר" (ה׳, ט׳): איך תיאור גדולת ה׳ מחזק את אליפז, ומה המסקנה בפסוק ט״ז?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">ה׳ כל יכול ומשגיח על העולם: מוריד גשם, מרים שפלים ומפיל ערמומיים (ה׳, ט׳–ט״ו). לכן כדאי לאיוב לפנות אליו בתפילה – הוא יכול לשנות הכול. המסקנה: "ותהי לדל תקוה, ועלתה קפצה פיה" (ה׳, ט״ז) – לחלש יש תקווה, והעוול סוגר את פיו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch45-16"><div class="qtext"><span class="qn">16</span><div>מה מבטיח אליפז לאיוב בסוף נאומו (ה׳, י״ז–כ״ו)? ומה מוסיף המלבי״ם על "בשש צרות יצילך" (ה׳, י״ט)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">אם יקבל את המוסר: ה׳ שהכאיב הוא שירפא (י״ח); יציל אותו ברעב ובמלחמה, מלשון רעה ומחיות טורפות (כ׳–כ״ג); יהיה לו שלום בביתו, צאצאים רבים, וימות זקן (כ״ד–כ״ו). בפסוקים ט׳–י״ז דיבר על טוב ה׳ בעולם <strong>באופן כללי</strong>; כאן הוא מבטיח לאיוב <strong>אישית</strong>.<br><strong>המלבי״ם:</strong> לפעמים רעה באה על האדם והיא בעצם לטובתו – שש צרות קטנות מצילות אותו מצרה שביעית, מסוכנת הרבה יותר.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch45-17"><div class="qtext"><span class="qn">17</span><div>אילו דרכי שכנוע אליפז משתמש בהן?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">מחמאה שהופכת לתוכחה (ד׳, ג׳–ה׳); הניסיון האישי שלו ("כאשר ראיתי", ד׳, ח׳); משל האריות – גם אריה חזק נשבר ונעלם (ד׳, י׳–י״א); וחזיון לילה מפחיד (ד׳, י״ב–כ״א).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="ch67" data-part="ch67">
+<header class="part-head"><span class="chips">פרקים ו׳–ז׳</span><h2>תשובת איוב לאליפז</h2></header>
+<div class="intro"><p>איוב עונה: הכאב שלי כבד יותר ממה שאתם מבינים. אני רק רוצה למות, ואין לי כוח לחכות לעתיד טוב. אתם חברים מאכזבים – כמו נחל שמתייבש בדיוק כשצריך אותו. אם חטאתי, תראו לי איפה. בפרק ז׳ הוא פונה ישירות לה׳: חיי האדם קצרים וקשים – למה אתה בודק אותי בכל רגע?</p></div>
+<ol class="qs">
+<li class="qcard teacher" data-q="ch67-1"><div class="qtext"><span class="qn">1</span><div><span class="badge">דף המורה</span>מה עונה איוב לטענה הראשונה – "אתה חיזקת אחרים ועכשיו נשברת"?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">שאי אפשר לשפוט כאב מבחוץ: "לו שקול ישקל כעשי... כי עתה מחול ימים יכבד" (ו׳, ב׳–ג׳) – אילו אפשר היה לשקול את הכאב שלי, הוא כבד יותר מחול הים. מי שעודד אחרים לא סבל בעצמו את מה שאני סובל עכשיו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch67-2"><div class="qtext"><span class="qn">2</span><div>"על כן דברי לעו" (ו׳, ג׳) – למה הדברים של איוב התפרצו בחריפות? ואיך הדימוי בפסוק ד׳ מחזק את זה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">כי הסבל שלו כבד מחול הים (ו׳, ב׳–ג׳) – לכן גם הדיבור קשה. הדימוי: "כי חצי שדי עמדי, אשר חמתם שתה רוחי" (ו׳, ד׳) – חיצים מורעלים של ה׳ תקועים בו והרעל חודר לרוחו. הכאב בא מה׳ וחודר פנימה, ולכן אין פלא שהמילים שלו חריפות.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch67-3"><div class="qtext"><span class="qn">3</span><div>מה איוב מבטא בשאלות הרטוריות בפסוקים ה׳–ו׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>פסוק ה׳</strong> – "הינהק פרא עלי דשא, אם יגעה שור על בלילו?" – חמור בר לא נוער כשיש לו עשב, ושור לא גועה כשיש לו מספוא. כלומר: אני לא צועק בלי סיבה; יש לי על מה לצעוק.<br><strong>פסוק ו׳</strong> – "היאכל תפל מבלי מלח?" – אי אפשר לאכול אוכל תפל בלי מלח. כך אי אפשר "לבלוע" את הייסורים שלו ("מאנה לנגוע נפשי", ו׳, ז׳). (יש מפרשים: גם דברי אליפז תפלים כאלה.)</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch67-4"><div class="qtext"><span class="qn">4</span><div><span class="badge">דף המורה</span>איך איוב עונה לטענה שהייסורים הם "ירידה לצורך עלייה"?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"מה כחי כי איחל, ומה קצי כי אאריך נפשי" (ו׳, י״א) – איזה כוח יש לי לחכות? ובשביל איזה סוף כדאי לי להתאזר בסבלנות? הוא לא מחכה לעתיד טוב – הוא מבקש שה׳ ימית אותו: "ויאל אלוה וידכאני" (ו׳, ט׳) – שה׳ יסכים להביא את הסבל לסופו במותו. ובנוסף: שום עתיד טוב לא יחזיר את הילדים שמתו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch67-5"><div class="qtext"><span class="qn">5</span><div><span class="badge">דף המורה</span>אליפז מטיל ספק ביראת ה׳ של איוב. מה איוב עונה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"ותהי עוד נחמתי... כי לא כחדתי אמרי קדוש" (ו׳, י׳) – הנחמה שלי: גם אם אמות, אדע שמעולם לא הכחשתי את דברי ה׳. והוא מחזיר את הטענה לאליפז: "למס מרעהו חסד, ויראת שדי יעזוב" (ו׳, י״ד) – מי שמונע חסד מחבר שנמס מצער, <strong>הוא</strong> זה שעוזב את יראת ה׳.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch67-6"><div class="qtext"><span class="qn">6</span><div><span class="badge">דף המורה</span>הרב קוק: מה צריך להיות היחס בין יראת שמים למוסר הטבעי? והאם זה מחזק את איוב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לפי הרב קוק, יראת שמים אמיתית <strong>מחזקת ומעלה</strong> את המוסר הטבעי – החמלה, היושר, הרגישות לאחר. אם יראת שמים דוחקת את המוסר, היא כבר לא טהורה.<br>זה <strong>מחזק את איוב</strong>: הרעים, בשם ההגנה על ה׳, פוגעים באדם סובל. זו בדיוק יראת שמים שדוחקת את המוסר.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch67-7"><div class="qtext"><span class="qn">7</span><div><span class="badge">דף המורה</span>מה איוב שואל את החברים בפסוקים כ״א–כ״ה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"כי עתה הייתם לו, תראו חתת ותיראו" (כ״א). שני פירושים:<br><strong>רש״י:</strong> "הייתם נמשלים לאותו הנחל" – נהייתם כמו הנחל האכזב: נעלמתם כשהייתי צריך אתכם.<br><strong>ראב״ע:</strong> "הייתם לו – למקום [לה׳]" – ראיתם את האסון שה׳ הביא עליי ונבהלתם, ולכן עברתם לצד של ה׳: מצדיקים אותו ומרשיעים אותי, בלי להוכיח שחטאתי.<br>"הכי אמרתי הבו לי?" (כ״ב) – האם ביקשתי מכם משהו? כסף? הצלה? לא ביקשתי כלום – רק שתהיו איתי.<br>"הורוני ואני אחריש, ומה שגיתי הבינו לי" (כ״ד) – תראו לי במה טעיתי, ואשתוק.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch67-8"><div class="qtext"><span class="qn">8</span><div>מה משל "נחל אכזב" (ו׳, ט״ו–כ׳)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"אחי בגדו כמו נחל" – נחל שמלא מים בחורף, כשאין בהם צורך, ומתייבש בקיץ, כשהשיירות הצמאות מגיעות אליו. כך החברים: היו שם בזמנים הטובים, ונעלמו כשאיוב צריך אותם.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch67-9"><div class="qtext"><span class="qn">9</span><div><span class="badge">דף המורה</span>הסרטון על אמפתיה וסימפתיה (ברנה בראון): מה איוב מבקש בעצם?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לפי הסרטון, <strong>סימפתיה</strong> היא לעמוד מלמעלה ולהסתכל על מי שנפל לבור, ולהגיד משפטים שמתחילים ב"לפחות...". <strong>אמפתיה</strong> היא לרדת אליו לבור ולהגיד: "אני כאן איתך, אתה לא לבד."<br>איוב מבקש אמפתיה: לא הסבר ולא פתרון, אלא שיכירו בכאב שלו ויהיו איתו. ה"ירידה לצורך עלייה" של אליפז היא בדיוק "לפחות...".</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch67-10"><div class="qtext"><span class="qn">10</span><div><span class="badge">דף המורה</span>מה הסרטון מציע כגשר בין מי שכואב לו לבין מי שמקשיב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>חיבור</strong>: להקשיב בלי לשפוט, לנסות לראות את העולם מעיניו, להכיר ברגש שלו ("זה נשמע קשה מאוד") ולהגיד לו שהוא לא לבד. הרעיון המרכזי בסרטון: תגובה כמעט אף פעם לא משפרת את המצב – מה שמשפר הוא החיבור.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch67-11"><div class="qtext"><span class="qn">11</span><div>מה איוב אומר על חיי האדם בפרק ז׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"הלא צבא לאנוש עלי ארץ וכימי שכיר ימיו" (ז׳, א׳) – חיי האדם הם כמו שירות צבאי קשה, או כמו ימי פועל שכיר שמחכה לסוף היום. "ימי קלו מני ארג" (ז׳, ו׳) – החיים עוברים מהר.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch67-12"><div class="qtext"><span class="qn">12</span><div>מה איוב שואל את ה׳ בפרק ז׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"מה אנוש כי תגדלנו... ותפקדנו לבקרים, לרגעים תבחננו" (ז׳, י״ז–י״ח) – מה כבר האדם, שאתה מתעסק בו כל כך ובודק אותו כל בוקר וכל רגע? כאן איוב עובר מהסבל הפרטי שלו לשאלה על מצב האדם בכלל – ופונה לה׳ ישירות, כמו שאליפז הציע, אבל בתלונה ולא בהכנעה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="ch89" data-part="ch89">
+<header class="part-head"><span class="chips">פרקים ח׳–ט׳</span><h2>בלדד ותשובת איוב</h2></header>
+<div class="intro"><p>בלדד חריף יותר מאליפז. לדבריו ה׳ לא מעוות משפט, ולכן ילדי איוב מתו כי חטאו. אם איוב ישר ויתפלל, ה׳ ישקם אותו. הוא מבסס את דבריו על חכמת הדורות הקודמים ועל משלים מהטבע. איוב עונה בפרק ט׳: ברור שה׳ חזק וחכם ממני, אבל דווקא בגלל זה אין לי סיכוי במשפט מולו. והסבל לא מבחין בין צדיק לרשע. אין בינינו שופט.</p></div>
+<ol class="qs">
+<li class="qcard teacher" data-q="ch89-1"><div class="qtext"><span class="qn">1</span><div><span class="badge">דף המורה</span>באיזה מנגנון ה׳ מנהיג את העולם לפי בלדד? מאיזה פסוק? ואיזו דוגמה מחיי איוב הוא מביא?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>משפט צודק – שכר ועונש מדויק</strong> (תורת הגמול): "האל יעוות משפט, ואם שדי יעוות צדק?" (ח׳, ג׳) – האם ה׳ מעוות משפט? ודאי שלא.<br><strong>הדוגמה:</strong> הילדים – "אם בניך חטאו לו, וישלחם ביד פשעם" (ח׳, ד׳): אם הם חטאו, ה׳ מסר אותם לעונש על חטאם.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-2"><div class="qtext"><span class="qn">2</span><div><span class="badge">דף המורה</span>איזו בשורה טובה יש בעולם כמו שבלדד מתאר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">בעולם של משפט יש סדר, ויש לאדם שליטה: אם המעשים קובעים את הגורל, אפשר לתקן, לשוב בתשובה ולשנות את העתיד. "אם זך וישר אתה... והיה ראשיתך מצער ואחריתך ישגה מאד" (ח׳, ו׳–ז׳) – אם אתה ישר, בסוף יהיה לך הרבה יותר ממה שהיה. (אירוניה: זה בדיוק מה שקורה בפרק מ״ב – אבל לא מהסיבה שבלדד חשב.)</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-3"><div class="qtext"><span class="qn">3</span><div>כתבי במילים שלך את דברי בלדד בפסוקים ה׳–ו׳.</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"אם תבקש את ה׳ ותתחנן אליו, ואם אתה באמת טהור וישר – ה׳ יתעורר לטובתך ויחזיר את השלום לביתך הצדיק."</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-4"><div class="qtext"><span class="qn">4</span><div><span class="badge">דף המורה</span>הגמרא בברכות ("יפשפש במעשיו"): איזו מתנה יש בהנחיה הזו?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">היא הופכת את הסבל להזדמנות לחשבון נפש ולצמיחה: קודם בודקים את המעשים, אחר כך את לימוד התורה, ואם לא נמצא כלום – אלה "ייסורים של אהבה". הסבל מקבל משמעות, והאדם מופנה אל מה שבידיו לתקן.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-5"><div class="qtext"><span class="qn">5</span><div><span class="badge">דף המורה</span>ומה אולי חסר בה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>רחמים וחסד</strong> – הכול נמדד במשפט ובחשבון. ועוד נקודה חשובה: ההנחיה היא לאדם <strong>עצמו</strong> ("יפשפש במעשיו"), לא לחבר שבא לבקר. בלדד לוקח הנחיה לחשבון נפש אישי ומשתמש בה כדי להאשים אדם אחר.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-6"><div class="qtext"><span class="qn">6</span><div><span class="badge">דף המורה</span>"הזן את העולם כולו בטובו, בחן בחסד וברחמים": איך זה פוגש את טענת בלדד?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לפי ברכת המזון, ה׳ מנהיג את העולם לא רק במשפט ("מה שמגיע לך"), אלא גם בחן, בחסד וברחמים – נותן גם למי שלא "הרוויח". בלדד רואה רק משפט, ולכן אין אצלו מקום לרחמים: לא של ה׳ כלפי איוב, וגם לא שלו עצמו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-7"><div class="qtext"><span class="qn">7</span><div><span class="badge">דף המורה</span>מה עושה בלדד שאליפז נזהר מלעשות?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">מעלה במפורש את האפשרות שהילדים מתו בגלל החטאים שלהם: "אם בניך חטאו לו וישלחם ביד פשעם" (ח׳, ד׳) – בלי שום הוכחה. אליפז רק רמז, ולא נגע בילדים. בלדד פוגע באב שכול בנקודה הכי כואבת.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-8"><div class="qtext"><span class="qn">8</span><div><span class="badge">דף המורה</span>מה השאלה המתבקשת בעקבות הטענה הזו, ואיך אפשר לענות?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>אם הילדים מתו כי חטאו – מה עם איוב?</strong> הוא חי וסובל; האם גם הוא חוטא? בלדד עונה: אם איוב באמת "זך וישר", הסבל שלו זמני – אם יתחנן לה׳, ה׳ ישקם אותו (ח׳, ה׳–ז׳). ואם לא יקום – סימן שהשורשים רקובים (ראו המשל בשאלה הבאה).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-9"><div class="qtext"><span class="qn">9</span><div><span class="badge">דף המורה</span>המשל: עץ שהרוח מפילה – מה זה אומר על השורשים? למה אולי טוב שנפל? ואיך זה קשור לתשובה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">עץ שרוח מפילה – השורשים שלו חלשים או רקובים. אולי טוב שנפל, כי הנפילה חושפת את הבעיה לפני שהיא מתפשטת, ואפשר לשתול מחדש – כמו הצמח שנעקר ו"מעפר אחר יצמחו" (ח׳, י״ט). כך הסבל לפי בלדד: הוא מראה לאדם שיש בעיה בשורש, ונותן לו הזדמנות לשוב בתשובה ולצמוח מחדש.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-10"><div class="qtext"><span class="qn">10</span><div>השוו בין בלדד לאליפז: במה הם דומים ובמה שונים?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>דומים:</strong> שניהם מאמינים בתורת הגמול, ושניהם מבטיחים לאיוב שיקום אם יפנה לה׳. <strong>הרמב״ן:</strong> מטרת בלדד היא "לחלוק על איוב ולסייע על דברי אליפז". ההוכחה: בסוף דבריו הוא חוזר על הבטחת אליפז מפרק ה׳ – "הן אל לא ימאס תם... עד ימלה שחוק פיך" (ח׳, כ׳–כ״א): ה׳ לא יעזוב את התם, ועוד תצחק ותשמח.<br><strong>שונים:</strong> <strong>סגנון</strong> – אליפז מתחיל במחמאה ומדבר ברמז; בלדד קצר, חריף וישיר ("עד אן תמלל אלה", ח׳, ב׳). <strong>מקור הסמכות</strong> – אליפז: ניסיון אישי וחזיון לילה; בלדד: מסורת הדורות ("שאל נא לדור רישון"). <strong>הילדים</strong> – אליפז לא נוגע בהם; בלדד אומר שמתו בגלל חטאם.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-11"><div class="qtext"><span class="qn">11</span><div>מהם המשלים של בלדד מהטבע?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>גומא</strong> (צמח ביצה) שגדל רק כשיש מים, ונובל ראשון כשהם נגמרים (ח׳, י״א–י״ג); ו<strong>בית עכביש</strong> – "ובית עכביש מבטחו" (ח׳, י״ד): הביטחון של הרשע שברירי כמו קורי עכביש. מולם, בפסוקים ט״ז–י״ט, צמח רענן ששורשיו חזקים ("על גל שרשיו יסבכו"). גם אם ייעקר ממקומו – "ומעפר אחר יצמחו": יצמח במקום אחר, ואפילו טוב יותר (רלב״ג). כך הצדיק: גם כשהוא סובל, זה לטובתו. ומקור הסמכות שלו: "כי שאל נא לדור רישון" (ח׳, ח׳) – חכמת הדורות הקודמים.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-12"><div class="qtext"><span class="qn">12</span><div>מהם שלושת החלקים של תשובת איוב בפרק ט׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>א׳–י׳:</strong> אדם לא יכול לצאת צדיק בדין מול ה׳ – ה׳ לא יענה לו, ובחכמתו הרבה יסתום את טענותיו.<br><strong>י״א–כ״א:</strong> האדם לא מבין את דרכי ה׳, וכשה׳ פוגע – אין מי שיעצור אותו ("מי יאמר אליו מה תעשה").<br><strong>כ״ב–כ״ד:</strong> ה׳ לא מבדיל בין צדיק לרשע – "תם ורשע הוא מכלה".</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-13"><div class="qtext"><span class="qn">13</span><div>מה אומר איוב על הסיכוי שלו במשפט מול ה׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"ומה יצדק אנוש עם אל" (ט׳, ב׳) – איך יכול אדם לצאת צודק במשפט מול ה׳? "אם אצדק פי ירשיעני" (ט׳, כ׳) – זו <strong>מלכודת</strong>: אם איוב יגיד שהוא צדיק, המשמעות היא שה׳ פגע בו בלי סיבה – ומי שאומר כך על ה׳ הוא רשע. בנוסף, ה׳ הוא גם התובע וגם השופט, ואין כאן משפט הוגן. "אם קראתי ויענני לא אאמין כי יאזין קולי" (ט׳, ט״ז) – גם אם יענה לי, לא אאמין שבאמת הקשיב.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-14"><div class="qtext"><span class="qn">14</span><div>מה משמעות "אשר בשערה ישופני והרבה פצעי חנם" (ט׳, י״ז)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הוא מוחץ אותי בסערה, ומרבה את הפצעים שלי <strong>בלי סיבה</strong>. המילה "חנם" מזכירה את השטן: "החנם ירא איוב אלהים?" (א׳, ט׳) – השטן שאל אם איוב עובד את ה׳ בחינם; עכשיו איוב מרגיש שה׳ מכה אותו בחינם.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-15"><div class="qtext"><span class="qn">15</span><div>למה "תם ורשע הוא מכלה" (ט׳, כ״ב) הוא תשובה ישירה לבלדד?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">כי הוא אומר שה׳ משמיד גם את התם וגם את הרשע – כלומר <strong>הסבל אינו הוכחה לחטא</strong>. ועוד: "ארץ נתנה ביד רשע" (ט׳, כ״ד) – העולם נמסר בידי רשעים. זה הפוך מהעולם הצודק של בלדד. על הפסוק הזה אמר רבא: "ביקש איוב להפוך קערה על פיה" (בבא בתרא ט״ז ע״א) – כמעט כפר בהשגחה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-16"><div class="qtext"><span class="qn">16</span><div>מה פירוש "לא יש בינינו מוכיח ישת ידו על שנינו" (ט׳, ל״ג)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"כי לא איש כמני אעננו" (ל״ב) – ה׳ לא בן אדם כמוני שאוכל לעמוד מולו במשפט. ואין בינינו <strong>מוכיח</strong> – שופט או בורר שיניח יד על שנינו ויכריע. איוב רוצה משפט הוגן, ואין מי שיעשה אותו. ("יסר מעלי שבטו... אדברה ולא איראנו" – רק שיסיר ממני את המכות והפחד, ואז אדבר. ל״ד–ל״ה)</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-17"><div class="qtext"><span class="qn">17</span><div>במה תשובת איוב לבלדד שונה מתשובתו לאליפז?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לאליפז איוב עונה <strong>רגשית ואישית</strong>: על הכאב, על החברות המאכזבת ("אחי בגדו כמו נחל"), על החסד שהחברים מונעים ממנו. לבלדד הוא עונה <strong>בשאלת הצדק עצמה</strong>: הוא מסכים שה׳ חזק וחכם, אבל טוען שאין לאדם סיכוי במשפט מולו, ושהסבל פוגע גם בתם וגם ברשע. בפרק ו׳ הוא מבקש חברים; בפרק ט׳ הוא מבקש שופט.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch89-18"><div class="qtext"><span class="qn">18</span><div>מה הקשר בין "עשה גדלות עד אין חקר" אצל אליפז ואצל איוב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">שניהם אומרים כמעט אותן מילים על גדולת ה' (ה׳, ט׳ אצל אליפז; ט׳, י׳ אצל איוב). אצל אליפז זו <strong>סיבה לתקווה</strong> – ה׳ יכול לעזור. אצל איוב זו <strong>סיבה לייאוש</strong> – מול כוח כזה אין לי סיכוי במשפט.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-19"><div class="qtext"><span class="qn">19</span><div><span class="badge">דף המורה</span>פרק כ״ט: מה היה עיסוקו של איוב, איך תפס את עצמו, ואיך אחרים תפסו אותו?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>עיסוקו:</strong> אדם בעל מעמד ציבורי גבוה, שעשה משפט בשער העיר ("בצאתי שער עלי קרת, ברחוב אכין מושבי", כ״ט, ז׳). עושה צדק ("צדק לבשתי וילבשני, כמעיל וצניף משפטי", כ״ט, י״ד) ועוזר לחלשים ("עינים הייתי לעור ורגלים לפסח אני", כ״ט, ט״ו).<br><strong>איך תפס את עצמו:</strong> בטוח ויציב – "ואמר עם קני אגוע" (כ״ט, י״ח): חשבתי שאמות בשיבה טובה בביתי.<br><strong>איך אחרים תפסו אותו:</strong> בכבוד עצום – נערים נחבאו, זקנים קמו, שרים שתקו (כ״ט, ח׳–ט׳); "לי שמעו ויחלו" (כ״ט, כ״א).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch89-20"><div class="qtext"><span class="qn">20</span><div><span class="badge">דף המורה</span>איך פרק כ״ט מסביר את דבריו בפרק ט׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">איוב חושב <strong>כמו מי שעשה משפט בשער</strong>. הוא רגיל שבמשפט הוגן הצודק מנצח – ולכן בפרק ט׳ הוא מבקש משפט מול ה׳ ומדבר במילים של בית דין: משפט, צדקתי, ירשיעני, מוכיח. והכאב הגדול: האיש שעשה צדק לכולם מרגיש שאין מי שיעשה צדק בשבילו – "לא יש בינינו מוכיח".</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="elihu" data-part="elihu">
+<header class="part-head"><span class="chips">פרקים ל״ב–ל״ה</span><h2>אליהוא</h2></header>
+<div class="intro"><p>שלושת הרעים מפסיקים לענות, כי לא הצליחו לשכנע את איוב. אז נכנס אליהוא, צעיר שחיכה בשקט מתוך כבוד. הוא כועס על שני הצדדים: על איוב, שהצדיק את עצמו יותר מאת ה׳, ועל הרעים, שהרשיעו את איוב בלי לענות לו. החידוש שלו: ה׳ כן מדבר עם האדם – בחלומות, ובייסורים שבאים להזהיר ולמנוע חטא. ולכן איוב צריך להקשיב ולחכות בסבלנות.</p></div>
+<ol class="qs">
+<li class="qcard" data-q="elihu-1"><div class="qtext"><span class="qn">1</span><div>על מה אליהוא כועס?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>על איוב:</strong> "על צדקו נפשו מאלהים" (ל״ב, ב׳) – הצדיק את עצמו יותר מאשר את ה׳.<br><strong>על הרעים:</strong> "על אשר לא מצאו מענה, וירשיעו את איוב" (ל״ב, ג׳) – לא מצאו תשובה, ובכל זאת הרשיעו אותו. (רש״י: זה אחד המקומות שבהם "תיקנו סופרים" את הלשון – כשלא ענו, כאילו הרשיעו את ה׳.)</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="elihu-2"><div class="qtext"><span class="qn">2</span><div>למה אליהוא חיכה, ולמה בכל זאת דיבר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">חיכה כי היה צעיר והם זקנים: "ימים ידברו ורב שנים ידיעו חכמה" (ל״ב, ז׳) – חשבתי שהגיל מביא חכמה. אבל הבין: "אכן רוח היא באנוש ונשמת שדי תבינם" (ל״ב, ח׳) – החכמה באה מהרוח שה׳ נותן באדם, לא מהגיל.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="elihu-3"><div class="qtext"><span class="qn">3</span><div>מה אליהוא עונה לטענה של איוב שה׳ לא עונה לו? (לפי שטיינזלץ)</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"מדוע אליו ריבות כי כל דבריו לא יענה? כי באחת ידבר אל ובשתים, לא ישורנה" (ל״ג, י״ג–י״ד) – למה אתה טוען שה׳ לא עונה? ה׳ מדבר עם האדם פעם ועוד פעם, בדרכים שונות – אבל האדם לא שם לב.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="elihu-4"><div class="qtext"><span class="qn">4</span><div>מה התפקיד של ייסורים לפי אליהוא, ובמה זה שונה מאליפז?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">ייסורים יכולים להיות <strong>אזהרה מראש</strong>: "להסיר אדם מעשה... יחשך נפשו מני שחת" (ל״ג, י״ז–י״ח) – להרחיק את האדם ממעשה רע ולהציל אותו לפני שייפול. ואם יש לו "מלאך מליץ אחד מני אלף" (ל״ג, כ״ג) – מישהו שמלמד עליו זכות – ה׳ מרחם עליו ומרפא אותו. אליפז דיבר על ייסורים כעונש או כתיקון על מה שכבר היה; אליהוא מדבר על <strong>מניעה</strong> של מה שעוד לא קרה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="elihu-5"><div class="qtext"><span class="qn">5</span><div>במה אליהוא שונה משלושת הרעים?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>גיל וגישה</strong> – צעיר, שחיכה בשקט ואומר "חפצתי צדקך" (ל״ג, ל״ב): הוא רוצה להצדיק את איוב, לא להרשיע אותו. <strong>תוכן</strong> – הרעים אמרו שהסבל הוא עונש על מה שאיוב עשה; אליהוא אומר שהסבל יכול להיות אזהרה ודרך שבה ה׳ מדבר. <strong>איוב</strong> – לא עונה לו בכלל. הרעים ניסו לנצח בוויכוח; אליהוא מביא את איוב להקשבה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="elihu-6"><div class="qtext"><span class="qn">6</span><div>מה אליהוא אומר בפרק ל״ד?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הוא מגן על צדק ה׳: "חללה לאל מרשע ושדי מעול" (ל״ד, י׳), "כי פעל אדם ישלם לו" (ל״ד, י״א). בזה הוא קרוב לבלדד – הוא מבקר את הרעים, אבל לא חולק על העיקרון שה׳ שופט בצדק.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="elihu-7"><div class="qtext"><span class="qn">7</span><div>מה אומר "אך שוא לא ישמע אל... דין לפניו ותחולל לו" (ל״ה, י״ג–י״ד), לפי שטיינזלץ?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לשווא אמרת שה׳ לא שומע את זעקתך ולא רואה את מצוקתך. גם אם אתה לא רואה את המשפט שלו – יש משפט לפניו, ועליך <strong>לחכות לו בסבלנות</strong>, כי בסוף הצדק יתגלה. איוב, שלא חיכה, "בבלי דעת מלין יכביר" (ל״ה, ט״ז) – מרבה מילים בלי לדעת.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="elihu-8"><div class="qtext"><span class="qn">8</span><div><span class="badge">דף המורה</span>"לא עוד דיאלוג או ויכוח – משהו הפעם יהיה אחרת": מה שונה אצל אליהוא?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">אליהוא עדיין מוכיח את איוב בחריפות, אבל הוא אומר "חפצתי צדקך" (ל״ג, ל״ב) – אני רוצה שתצא צודק. ומזמין את איוב: "הקשב איוב שמע לי, החרש ואנכי אדבר" (ל״ג, ל״א); ואם יש לך מה לענות – ענה. המעבר הוא <strong>מדיבור להקשבה</strong>: לא "מי צודק", אלא להיות מוכן לשמוע.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="elihu-9"><div class="qtext"><span class="qn">9</span><div><span class="badge">דף המורה</span>ר׳ חרל״פ על השתיקה, ו"שמע ישראל": מה הקשר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לפי ר׳ חרל״פ, השתיקה היא לא ריקנות אלא "אומנות": כשהאדם משתיק את הרגשות והטענות שלו, הוא יכול להקשיב ל"לחשי נשמתו". גם "<strong>שמע</strong> ישראל" – יסוד האמונה מתחיל בהקשבה, לא בהבנה. זה מה שאליהוא מבקש מאיוב: "החרש... הקשב".</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="elihu-10"><div class="qtext"><span class="qn">10</span><div><span class="badge">דף המורה</span>הצצה לפרק כ״ח: מה התהליך שאליהוא מעביר את איוב מאפשר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">פרק כ״ח אומר שהחכמה נסתרת מכל חי: "והחכמה מאין תמצא?" – רק ה׳ יודע את מקומה. לאדם נאמר: "הן יראת ה׳ היא חכמה, וסור מרע בינה" (כ״ח, כ״ח). השתיקה וההקשבה שאליהוא מבקש מאפשרות לאיוב להפסיק לחפש את התשובה בוויכוח ובשכל, ולהיות מוכן לפגוש את ה׳ בפרק ל״ח.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="ch38" data-part="ch38">
+<header class="part-head"><span class="chips">פרקים ל״ח–מ׳</span><h2>ה׳ עונה לאיוב</h2></header>
+<div class="intro"><p>ה׳ עונה לאיוב מן הסערה – אבל לא מסביר למה הוא סבל. במקום זה הוא שואל אותו שאלות על בריאת העולם: איפה היית כשיסדתי את הארץ? מי שם גבול לים? מי מוריד גשם במדבר שאין בו אדם? בסוף ה׳ מזמין את איוב להשיב. איוב מבין שהוא קטן מלהבין, ושם יד על פיו.</p></div>
+<ol class="qs">
+<li class="qcard teacher" data-q="ch38-1"><div class="qtext"><span class="qn">1</span><div><span class="badge">דף המורה</span>עוד לפני הפסוקים: מה היית מצפה שה׳ יענה לאיוב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">(שאלה אישית – כיוון אפשרי:) הסבר: למה זה קרה לי? האם חטאתי? אולי פסק דין – הרי איוב ביקש משפט (ט׳, ל״ב–ל״ה) – או התנצלות על הסבל.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch38-2"><div class="qtext"><span class="qn">2</span><div>מה ה׳ אומר בפסוקים הראשונים?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"מי זה מחשיך עצה במלין בלי דעת" (ל״ח, ב׳) – מי זה שמדבר על הנהגת ה׳ בלי להבין אותה, ובמקום להבהיר – מחשיך? "אזר נא כגבר חלציך ואשאלך והודיעני" (ג׳) – תתכונן כמו גבר: אני אשאל ואתה תענה. "איפה היית ביסדי ארץ?" (ד׳) – איפה היית כשבראתי את הארץ?</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch38-3"><div class="qtext"><span class="qn">3</span><div><span class="badge">דף המורה</span>איזו שאלה מתעוררת על מה שה׳ בוחר לומר לאיוב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">ה׳ <strong>לא עונה ישירות</strong> על השאלה של איוב. אין מילה על הסבל, על הילדים או על הצדק. למה הוא מדבר על ים, גשם וכוכבים?</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch38-4"><div class="qtext"><span class="qn">4</span><div><span class="badge">דף המורה</span>מה בעצם עונה ה׳ לאיוב? מה הדרך הזו באה לומר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">שהעולם גדול ומורכב הרבה יותר ממה שאיוב רואה. יש בו סדר וגבולות – "ויסך בדלתים ים... עד פה תבוא ולא תסיף" (ל״ח, ח׳–י״א) – ויש בו דאגה גם למקום שאין בו אדם – "להמטיר על ארץ לא איש" (ל״ח, כ״ו). אם איוב לא מבין איך פועל הגשם, איך יבין את ההנהגה של ה׳ בחייו? המסר: אתה רואה רק חלק קטן – אל תשפוט את הכול לפי החלק.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch38-5"><div class="qtext"><span class="qn">5</span><div>מה הקשר בין "ויסך בדלתים ים" (ל״ח, ח׳) ל"ויסך אלוה בעדו" (ג׳, כ״ג)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">אותה מילה. בפרק ג׳ איוב הרגיש שה׳ <strong>סגר עליו</strong> כמו כלא. כאן ה׳ "סוגר" על הים כדי שלא יציף את העולם – הגבול הוא <strong>שמירה וסדר</strong>. גם הגבולות בחייו של איוב יכולים להיות חלק מסדר שהוא לא רואה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch38-6"><div class="qtext"><span class="qn">6</span><div><span class="badge">דף המורה</span>מה את אומרת על התשובה הזו?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">(שאלה אישית – כיוונים אפשריים:) אפשר להרגיש שהיא מתחמקת ולא עונה לכאב. ואפשר לראות בה כבוד לאיוב: ה׳ לא נותן לו הסבר זול, אלא מראה לו את העולם מנקודת המבט שלו ונותן לו את עצמו – את המפגש.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch38-7"><div class="qtext"><span class="qn">7</span><div><span class="badge">דף המורה</span>איך מתוארת ההתגלות בפסוק א׳? מה היא מזכירה? איזו עמידה היא יוצרת?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"ויען ה׳ את איוב <strong>מן הסערה</strong>". <strong>רש״י:</strong> "בסערה הכהו, בסערה רפאהו" – הילדים מתו ב"רוח גדולה" (א׳, י״ט), ועכשיו ה׳ מרפא אותו מתוך סערה. <strong>רמב״ן:</strong> איוב הגיע עכשיו לדרגת <strong>נבואה</strong>. ההתגלות מזכירה גם את <strong>מעמד הר סיני</strong>: קולות, ברקים, ענן כבד וחרדה. זה יוצר עמידה של <strong>יראה</strong> – האדם מרגיש קטן מול גדולת ה׳. וגם: איוב אמר "בשערה ישופני" (ט׳, י״ז) – פחד שה׳ ימחץ אותו בסערה. ה׳ אכן בא בסערה – אבל כדי לדבר איתו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch38-8"><div class="qtext"><span class="qn">8</span><div><span class="badge">דף המורה</span>איזה מענה נותן עצם המפגש?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">עצם זה שה׳ מתגלה ומדבר עם איוב הוא תשובה. איוב חשב שה׳ לא שומע אותו ושהוא נטוש ("לא אאמין כי יאזין קולי", ט׳, ט״ז). המפגש אומר: <strong>אני רואה אותך, אתה לא לבד.</strong> כמו בסיני – הקשר עצמו חשוב יותר מההסבר.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch38-9"><div class="qtext"><span class="qn">9</span><div><span class="badge">דף המורה</span>ה׳ מסיים בהזמנה מיוחדת לאיוב. מהי?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"הרב עם שדי יסור? מוכיח אלוה יעננה" (מ׳, ב׳) – מי שבא להתווכח עם ה׳ ולהוכיח אותו – שיענה עכשיו! זה בדיוק מה שאיוב ביקש בפרק ט׳: "לא יש בינינו <strong>מוכיח</strong>" (ט׳, ל״ג). עכשיו יש לו הזדמנות לעמוד מול ה׳ ולטעון.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch38-10"><div class="qtext"><span class="qn">10</span><div><span class="badge">דף המורה</span>כיצד איוב בוחר לענות? מה אפשר לשמוע בבחירה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"הן קלתי מה אשיבך, ידי שמתי למו פי. אחת דברתי ולא אענה, ושתים ולא אוסיף" (מ׳, ד׳–ה׳) – אני קטן, מה אענה לך? שמתי יד על הפה. דיברתי פעם, לא אוסיף. לפי <strong>רמב״ן</strong> – הוא מבין שהוא קטן מכדי להשיב; לפי <strong>רשב״ם</strong> – הוא לא יוסיף עוד טענה.<br>יש כאן <strong>שני דברים יחד</strong>: <strong>הכנעה</strong> – הוא מכיר בקטנותו ומפסיק לדבר; אבל <strong>לא חזרה בו</strong> – הוא לא אומר שטעה, רק שלא יוסיף. זו גם הקשבה (ר׳ חרל״פ). וזו עוד לא תשובתו האחרונה: ה׳ ממשיך לדבר (מ׳, ו׳ – מ״א), ורק בפרק מ״ב איוב אומר מה הבין.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch38-11"><div class="qtext"><span class="qn">11</span><div>לפי מצודת דוד: על איזו שאלה איוב קיבל תשובה, ועל אילו שתי שאלות לא?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>קיבל תשובה:</strong> האם העולם מתנהל סתם, לפי חוקי הטבע ("המערכה"), בלי השגחה. עכשיו איוב מבין שהכול בידי ה׳ – לכן "אחת דברתי ולא אענה".<br><strong>לא קיבל תשובה</strong> ("ושתים ולא אוסיף"): אם הכול בהשגחה – <strong>למה צדיק ורע לו? ולמה רשע וטוב לו?</strong> הוא עדיין לא יודע, אבל לא ימשיך לשאול, כי ירא להרהר אחרי ה׳.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch38-12"><div class="qtext"><span class="qn">12</span><div>מה הדמיון וההבדל בין תשובת ה׳ לאיוב לבין תהלים צ״ב ("מה גדלו מעשיך ה׳... איש בער לא ידע", פס׳ ו׳–י׳)?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>דמיון:</strong> גדולת ה׳, והאדם לא יכול להבין את מעשיו.<br><strong>הבדל:</strong> בתהלים יש הבטחה לשכר ועונש – הרשעים יאבדו ("להשמדם עדי עד"). בתשובת ה׳ לאיוב אין הבטחה כזו; העיקר הוא שהאדם לא מבין.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="ch42" data-part="ch42">
+<header class="part-head"><span class="chips">פרק מ״ב</span><h2>סוף הספר</h2></header>
+<div class="intro"><p>איוב אומר: עכשיו אני מבין שאני לא מבין. קודם רק שמעתי עליך, ועכשיו ראיתי אותך – ולכן אני מתנחם. ה׳ כועס על הרעים, כי לא דיברו אליו נכון כמו איוב. הם צריכים להביא קרבנות ולבקש מאיוב שיתפלל עליהם. איוב מתפלל, ורק אז ה׳ משקם אותו: רכושו מוכפל, ונולדים לו שוב ילדים. משפחתו ומכריו באים לאכול איתו ולנחם אותו. נולדים לו שבעה בנים ושלוש בנות, והבנות מקבלות שמות ונחלה.</p></div>
+<ol class="qs">
+<li class="qcard teacher" data-q="ch42-1"><div class="qtext"><span class="qn">1</span><div><span class="badge">דף המורה</span>מה תגובתו השנייה של איוב, ומה היא מספרת על עמידתו מול ה׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>פסוק ב׳:</strong> "ידעתי כי כל תוכל ולא יבצר ממך מזמה" – אתה יכול הכול, ושום תוכנית לא נמנעת ממך: הכול בהשגחתך. <strong>פסוק ג׳:</strong> "לכן הגדתי ולא אבין, נפלאות ממני ולא אדע" – דיברתי על דברים שאני לא מבין. במילים אחרות: <strong>אני מבין שאני לא מבין.</strong> זו עמידה של ענווה ואמון: הוא לא קיבל הסבר, אבל קיבל קשר ישיר עם ה׳.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-2"><div class="qtext"><span class="qn">2</span><div><span class="badge">דף המורה</span>לפי הפסוקים, מה הסיבה לנחמה של איוב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">"לשמע אזן שמעתיך ועתה עיני ראתך, על כן אמאס ונחמתי על עפר ואפר" (מ״ב, ה׳–ו׳) – קודם רק שמעתי עליך מאחרים, ועכשיו ראיתי אותך בעצמי; לכן אני מתנחם, למרות שאני יושב בעפר ובאפר. הנחמה באה מ<strong>המפגש עם ה׳</strong> – עוד <strong>לפני</strong> שהרכוש חוזר.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-3"><div class="qtext"><span class="qn">3</span><div><span class="badge">דף המורה</span>הרמב״ם: מה קרה לאיוב בעקבות ההתגלות, ואיך זה הביא לנחמה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">איוב הגיע ל<strong>ידיעת ה׳ אמיתית</strong> – לא רק "מפי השמועה" (מסורת שקיבל), אלא הכרה של ממש. הוא הבין שהאושר האמיתי הוא ידיעת ה׳, ושום ייסורים לא יכולים לקחת אותו. קודם חשב שבריאות, עושר ומשפחה הם <strong>תכלית</strong> האושר; עכשיו הבין שהם לא התכלית – לכן "אמאס" בכל מה שהתאווה אליו, ו"נחמתי" למרות שהוא בעפר ואפר. (אין הכוונה שהילדים לא חשובים, אלא שהם לא תכלית החיים.)</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-4"><div class="qtext"><span class="qn">4</span><div><span class="badge">דף המורה</span>מה את אומרת על התשובה של הרמב״ם?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">(שאלה אישית – כיוונים אפשריים:) <strong>חזק:</strong> זו נחמה שאף אחד לא יכול לקחת ממך. <strong>קשה:</strong> האם אדם שמכיר את ה׳ באמת לא נפגע מאובדן ילדים? זו נחמה שקשה להרגיש.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-5"><div class="qtext"><span class="qn">5</span><div><span class="badge">דף המורה</span>הרב סולובייצ׳יק: על איזו שאלה אי אפשר לקבל תשובה, ולאיזו שאלה ה׳ מכוון את איוב?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>אי אפשר לקבל תשובה</strong> על שאלת ה"<strong>מדוע</strong>" – מה הסיבה לייסורים, למה צדיק סובל.<br><strong>ה׳ מכוון</strong> לשאלה: <strong>מה עליי לעשות</strong> עם הייסורים? איך לצמוח ולתקן דרכם? השאלה הזו נותנת לאדם כוח לפעול, ולא רק לשאול.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-6"><div class="qtext"><span class="qn">6</span><div><span class="badge">דף המורה</span>באילו כינויים הרב סולובייצ׳יק מכנה את שני השואלים, ולמה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">מי ששואל "מדוע" הוא <strong>עבד הגורל</strong> – מרגיש שהדברים קורים לו והוא רק סובל אותם, פסיבי. מי ששואל "מה עליי לעשות" הוא <strong>איש היעוד</strong> – לוקח אחריות, בוחר ופועל.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-7"><div class="qtext"><span class="qn">7</span><div><span class="badge">דף המורה</span>איך אדם יכול לעבור מהשאלה הראשונה לשנייה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">(שאלה אישית – כיוונים אפשריים:) להכיר בכך שהשאלה הראשונה לא תיפתר (כמו איוב אחרי ל״ח); לחפש משמעות במקום סיבה (פרנקל); מפגש עם מישהו שמקשיב באמת; ופנייה אל האחר – כמו איוב שמתפלל על רעיו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-8"><div class="qtext"><span class="qn">8</span><div><span class="badge">דף המורה</span>הרב רבינוביץ: למה אין לשכל האדם גישה להבנת מידת הדין, ומה היה קורה אילו הבין אותה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">לאדם אין גישה להבנת מידת הדין – וזה <strong>לטובה</strong>. אילו הבנו למה אנשים סובלים, היינו מפסיקים לכאוב את כאבם, ואולי אפילו מצדיקים אותו ("מגיע לו"). חוסר ההבנה <strong>שומר על הלב</strong> – על החמלה ועל הרצון לעזור, כמו משה שזעק "למה הרעתה לעם הזה" ופעל להציל. הרעים הם הדוגמה: ההסברים שלהם השתיקו את הרחמים.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-9"><div class="qtext"><span class="qn">9</span><div><span class="badge">דף המורה</span>מה יחסו של ה׳ לרעים, ומה פירוש "כי לא דברתם אלי נכונה כעבדי איוב"?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">ה׳ כועס: "חרה אפי בך ובשני רעיך" (מ״ב, ז׳). איוב דיבר <strong>אל</strong> ה׳ – ישירות ובכנות, גם כשמחה וזעק. הרעים דיברו <strong>על</strong> ה׳ – הגנו על הצדק שלו על חשבון האמת ועל חשבון איוב.<br><strong>רש״י:</strong> איוב לא פשע אלא כשאמר "תם ורשע הוא מכלה", ומה שהוסיף – אמר מקושי הייסורים. הרעים פשעו כי <strong>הרשיעו אותו במקום לנחם אותו</strong>, והוסיפו לו צער.<br><strong>מצודת דוד:</strong> גם איוב לא דיבר נכון, ובכל זאת ה׳ קורא לו "עבדי" – כי "אין אדם נתפס על צערו" (בבא בתרא ט״ז ע״ב). דוגמאות לדברים לא נכונים של איוב: "תם ורשע הוא מכלה" (ט׳, כ״ב), "ארץ נתנה ביד רשע" (ט׳, כ״ד), "והרבה פצעי חנם" (ט׳, י״ז).</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-10"><div class="qtext"><span class="qn">10</span><div><span class="badge">דף המורה</span>איזו אמירה עקרונית אפשר לשמוע כאן?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">ה׳ מעדיף <strong>כנות כואבת</strong> – אפילו טענות נגדו – על פני הגנה מתחסדת שפוגעת באדם. זה מתחבר לרב קוק: יראת שמים שדוחקת את המוסר היא לא יראת שמים טהורה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-11"><div class="qtext"><span class="qn">11</span><div><span class="badge">דף המורה</span>מה הציווי לרעים ומה הציווי לאיוב? מה התפקיד של כל אחד?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>הרעים:</strong> ללכת אל איוב, להעלות עולה ולבקש שיתפלל עליהם (מ״ב, ח׳). הם חייבים להודות שטעו, ולתקן קודם את היחס לאדם שפגעו בו – אי אפשר לתקן את הקשר עם ה׳ בלי לתקן את הקשר עם החבר.<br><strong>איוב:</strong> להתפלל על מי שפגעו בו – לצאת מהכאב של עצמו אל האחר, ולסלוח.<br><strong>הקשר לספר:</strong> כל הספר היה ויכוח על ה׳ שפירק את החברות. כאן ה׳ מחבר אותם מחדש – דרך תפילה, כלומר דרך הקשר איתו.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard" data-q="ch42-12"><div class="qtext"><span class="qn">12</span><div>מה אומר הרב פוירשטיין ב"סוד האמפתיה"?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">הוא מדייק בפסוק הראשון: איוב "ירא אלהים" – לא נאמר שאהב את ה׳; "סר מרע" – לא נאמר שעשה טוב. הוא דאג לשלמות המוסרית של ילדיו (א׳, ה׳), אבל לא מסופר שדאג לשלמות המוסרית של בני דורו. הגאולה מגיעה רק "<strong>בהתפללו בעד רעהו</strong>" (מ״ב, י׳) – כשהוא יוצא מעולמו הפרטי אל האחר.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-13"><div class="qtext"><span class="qn">13</span><div><span class="badge">דף המורה</span>במילים שלנו: מה מסופר בפסוקים ט׳–י״ז?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">ה׳ מקבל את תפילת איוב, משקם אותו ומכפיל את רכושו. כל אחיו, אחיותיו ומכריו באים, אוכלים איתו, מנחמים אותו ונותנים לו מתנה. נולדים לו שבעה בנים ושלוש בנות – ימימה, קציעה וקרן הפוך – היפות בכל הארץ, והוא נותן להן נחלה עם אחיהן. הוא חי עוד 140 שנה, רואה ארבעה דורות, ומת "זקן ושבע ימים".</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-14"><div class="qtext"><span class="qn">14</span><div><span class="badge">דף המורה</span>מה השינוי ביחס של איוב לסביבה? אילו פסוקים מלמדים על כך, ואיך זה קשור לעמידתו מול ה׳?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>בהתחלה</strong> מתוארים רק רכושו וביתו: הילדים חוגגים בלעדיו, והוא מקריב עליהם מחשש (א׳, ד׳–ה׳). (הוא עזר לחלשים – כ״ט – אבל לא מתואר אף אחד שבא אליו כחבר.)<br><strong>בסוף</strong> הבית פתוח: אחים, אחיות ומכרים אוכלים איתו ומנחמים אותו (מ״ב, י״א); הוא מתפלל על רעיו (מ״ב, י׳); ונותן לבנות שמות ונחלה (מ״ב, י״ד–ט״ו).<br><strong>הקשר:</strong> מי שבוטח בה׳ ולא חי בפחד, יכול להיפתח לאחרים.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-15"><div class="qtext"><span class="qn">15</span><div><span class="badge">דף המורה</span>מה מתאפשר בעקבות השינוי – משהו שלא היה בתיאור השפע בתחילת הספר?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>קרבה ונחמה מאנשים</strong>: הם באים, אוכלים איתו ומנחמים אותו. בפרק א׳ יש רק רשימת רכוש – אין אף אחד שבא לביתו. וגם הבנות: בפרק א׳ אין להן שמות, ועכשיו יש להן שם, יופי ונחלה – יחס אישי לכל אחת.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-16"><div class="qtext"><span class="qn">16</span><div><span class="badge">דף המורה</span>"סוף טוב הכל טוב?" – איזו שאלה חשובה עולה?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>האם ילדים חדשים יכולים לפצות על הילדים שמתו?</strong> הרכוש הוכפל, אבל אובדן של ילד לא "מתוקן" בילד אחר. שימו לב: הרכוש בדיוק כפול, אבל מספר הילדים – שבעה ושלוש – כמו קודם.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-17"><div class="qtext"><span class="qn">17</span><div><span class="badge">דף המורה</span>מהן שלוש האפשרויות של הרמב״ן ל"וה׳ שב את שבות איוב"?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext"><strong>1. תחליף</strong> (פירוש שהרמב״ן מביא בשם מפרשים אחרים): "שבות" היא מה שאדם מקבל <strong>תמורת</strong> מה שאבד – איוב קיבל תחליף.<br><strong>2. החזרה של מה שנגנב:</strong> אנשי שבא והכשדים החזירו את הבקר, האתונות והגמלים. על הנערים והילדים שמתו קיבל אחרים – כי הם נענשו על חטאם ("וישלחם ביד פשעם").<br><strong>3. אף אחד לא מת:</strong> השטן לקח את הכול למדבר, והראה לשליחים כאילו הכול נהרג. הם סיפרו לאיוב מה שחשבו שראו. אחרי הניסיון הכול חזר. הראיה של הרמב״ן: כתוב "<strong>ומלאך</strong> בא אל איוב" – מלאך הוא שליח שמישהו שלח (השטן), ולא סתם "איש".</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-18"><div class="qtext"><span class="qn">18</span><div><span class="badge">דף המורה</span>מה אפשר להבין על מהות השטן לפי האפשרות השלישית?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">השטן הוא לא כוח עצמאי שעושה מה שהוא רוצה. הוא פועל רק בתוך הגבולות שה׳ קבע, ומטרתו <strong>לנסות</strong> ולא להרוג – "והשטן ידע כי רצון האל בניסיון לבד". הניסיון היה בעיקר <strong>בתודעה</strong> של איוב: במה שהוא האמין שקרה.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+<li class="qcard teacher" data-q="ch42-19"><div class="qtext"><span class="qn">19</span><div><span class="badge">דף המורה</span>עוד אפשרות להבין את השטן, הקשורה לאופן שבו איוב תפס את המציאות?</div></div><button class="reveal" type="button">הצגת תשובה</button><div class="ans" hidden><div class="atext">השטן מייצג את <strong>המבט המפוחד והחשבונאי</strong> – הקול שאומר שהקשר עם ה׳ הוא עסקה: אם אני צדיק, מגיע לי טוב; ואם קרה רע – הכול נגדי. זה בדיוק מה שהשטן אומר בשמים ("החנם ירא איוב?"), וזה מה שאיוב עצמו חי בו ("פחד פחדתי ויאתיני"). כשאיוב עובר <strong>מפנקסנות לאמון</strong>, השטן נעלם מהסיפור – בפרק מ״ב הוא לא מוזכר בכלל.</div><div class="mark"><button type="button" class="knew">✓ ידעתי</button><button type="button" class="again">↺ לחזור על זה</button></div></div></li>
+</ol></section>
+<section class="part" id="quiz"><header class="part-head"><span class="chips">חזרה</span><h2>מי אמר?</h2></header><div class="intro"><p>לחצי על פסוק כדי לראות מי אמר אותו ומה הוא אומר.</p></div><div class="quiz"><button type="button" class="qz"><span class="qz-v">״החנם ירא איוב אלהים״</span><span class="qz-a"><strong>השטן</strong> · האם איוב ירא את ה׳ בלי לקבל משהו בתמורה? (א׳, ט׳)</span></button><button type="button" class="qz"><span class="qz-v">״ה׳ נתן וה׳ לקח, יהי שם ה׳ מבורך״</span><span class="qz-a"><strong>איוב</strong> · תגובתו לניסיון הראשון (א׳, כ״א)</span></button><button type="button" class="qz"><span class="qz-v">״ברך אלהים ומת״</span><span class="qz-a"><strong>אשת איוב</strong> · קלל את ה׳ ותמות (ב׳, ט׳)</span></button><button type="button" class="qz"><span class="qz-v">״למה לא מרחם אמות״</span><span class="qz-a"><strong>איוב</strong> · למה לא מתתי כבר ברחם (ג׳, י״א)</span></button><button type="button" class="qz"><span class="qz-v">״זכר נא מי הוא נקי אבד״</span><span class="qz-a"><strong>אליפז</strong> · צדיק אף פעם לא נאבד – רמז שאיוב חטא (ד׳, ז׳)</span></button><button type="button" class="qz"><span class="qz-v">״אשרי אנוש יוכחנו אלוה״</span><span class="qz-a"><strong>אליפז</strong> · הייסורים הם מוסר; ה׳ מכאיב ומרפא (ה׳, י״ז)</span></button><button type="button" class="qz"><span class="qz-v">״מה כחי כי איחל״</span><span class="qz-a"><strong>איוב</strong> · אין לי כוח לחכות לעתיד טוב (ו׳, י״א)</span></button><button type="button" class="qz"><span class="qz-v">״אחי בגדו כמו נחל״</span><span class="qz-a"><strong>איוב</strong> · החברים אכזבו כמו נחל שמתייבש (ו׳, ט״ו)</span></button><button type="button" class="qz"><span class="qz-v">״האל יעוות משפט״</span><span class="qz-a"><strong>בלדד</strong> · ה׳ לא מעוות משפט – תורת הגמול (ח׳, ג׳)</span></button><button type="button" class="qz"><span class="qz-v">״אם בניך חטאו לו״</span><span class="qz-a"><strong>בלדד</strong> · הילדים מתו בגלל חטאם (ח׳, ד׳)</span></button><button type="button" class="qz"><span class="qz-v">״תם ורשע הוא מכלה״</span><span class="qz-a"><strong>איוב</strong> · הסבל לא מבחין בין צדיק לרשע (ט׳, כ״ב)</span></button><button type="button" class="qz"><span class="qz-v">״לא יש בינינו מוכיח״</span><span class="qz-a"><strong>איוב</strong> · אין שופט ביני לבין ה׳ (ט׳, ל״ג)</span></button><button type="button" class="qz"><span class="qz-v">״אכן רוח היא באנוש״</span><span class="qz-a"><strong>אליהוא</strong> · חכמה באה מה׳, לא מהגיל (ל״ב, ח׳)</span></button><button type="button" class="qz"><span class="qz-v">״הקשב איוב שמע לי, החרש״</span><span class="qz-a"><strong>אליהוא</strong> · מעבר מוויכוח להקשבה (ל״ג, ל״א)</span></button><button type="button" class="qz"><span class="qz-v">״איפה היית ביסדי ארץ״</span><span class="qz-a"><strong>ה׳</strong> · אתה לא היית בבריאה – אינך מבין הכול (ל״ח, ד׳)</span></button><button type="button" class="qz"><span class="qz-v">״ידי שמתי למו פי״</span><span class="qz-a"><strong>איוב</strong> · שתיקה מול ה׳ (מ׳, ד׳)</span></button><button type="button" class="qz"><span class="qz-v">״לשמע אזן שמעתיך ועתה עיני ראתך״</span><span class="qz-a"><strong>איוב</strong> · מהמסורת לפגישה ישירה – הנחמה (מ״ב, ה׳)</span></button><button type="button" class="qz"><span class="qz-v">״לא דברתם אלי נכונה כעבדי איוב״</span><span class="qz-a"><strong>ה׳</strong> · כעס על הרעים (מ״ב, ז׳)</span></button></div></section>
+  <footer>התשובות לשאלות האישיות הן כיוונים אפשריים, לא תשובה אחת נכונה.</footer>
 </main>
 </div>
 
 <script>
 (function(){
-  var store = {
-    get:function(k,d){try{var v=localStorage.getItem('iyov:'+k);return v===null?d:JSON.parse(v);}catch(e){return d;}},
-    set:function(k,v){try{localStorage.setItem('iyov:'+k,JSON.stringify(v));}catch(e){}}
-  };
-  var root=document.documentElement;
+  var KEY='iyov2:';
+  function get(k,d){try{var v=localStorage.getItem(KEY+k);return v===null?d:JSON.parse(v);}catch(e){return d;}}
+  function set(k,v){try{localStorage.setItem(KEY+k,JSON.stringify(v));}catch(e){}}
+  var root=document.documentElement, body=document.body;
 
-  /* theme */
-  var theme=store.get('theme',null); if(theme) root.setAttribute('data-theme',theme);
-  document.getElementById('themeBtn').addEventListener('click',function(){
+  var theme=get('theme',null); if(theme) root.setAttribute('data-theme',theme);
+  document.getElementById('themeBtn').onclick=function(){
     var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-    var next=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',next); store.set('theme',next);
-  });
+    var n=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',n); set('theme',n);
+  };
 
-  /* chapter done */
-  var done=store.get('done',{});
-  var boxes=document.querySelectorAll('input[data-done]');
+  var marks=get('marks',{});
+  var cards=[].slice.call(document.querySelectorAll('.qcard'));
   function paint(){
-    var n=0;
-    boxes.forEach(function(b){
-      var id=b.dataset.done, on=!!done[id]; b.checked=on; if(on)n++;
-      b.closest('.chapter').classList.toggle('is-done',on);
-      var t=document.querySelector('[data-toc="'+id+'"]'); if(t)t.classList.toggle('is-done',on);
+    var known=0, per={};
+    cards.forEach(function(c){
+      var id=c.dataset.q, m=marks[id], part=c.closest('.part').dataset.part;
+      c.classList.toggle('known',m==='k'); c.classList.toggle('again',m==='a');
+      per[part]=per[part]||[0,0]; per[part][1]++;
+      if(m==='k'){known++; per[part][0]++;}
     });
-    document.getElementById('pcount').textContent=n+'/'+boxes.length+' פרקים';
-    document.getElementById('pfill').style.width=(100*n/boxes.length)+'%';
+    document.getElementById('pcount').textContent=known+'/'+cards.length+' ידעתי';
+    document.getElementById('pfill').style.width=(100*known/cards.length)+'%';
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var c=per[el.dataset.count]||[0,0]; el.textContent=c[0]+'/'+c[1]; el.classList.toggle('full',c[1]&&c[0]===c[1]);
+    });
   }
-  boxes.forEach(function(b){b.addEventListener('change',function(){done[b.dataset.done]=b.checked;store.set('done',done);paint();});});
+  cards.forEach(function(c){
+    var ans=c.querySelector('.ans');
+    c.querySelector('.reveal').onclick=function(){ans.hidden=false;this.hidden=true;};
+    c.querySelector('.knew').onclick=function(){marks[c.dataset.q]=marks[c.dataset.q]==='k'?undefined:'k';set('marks',marks);paint();};
+    c.querySelector('.again').onclick=function(){marks[c.dataset.q]=marks[c.dataset.q]==='a'?undefined:'a';set('marks',marks);paint();};
+  });
   paint();
 
-  /* self-check boxes */
-  var qs=store.get('qs',{});
-  document.querySelectorAll('input[data-q]').forEach(function(b,i){
-    b.checked=!!qs[i]; b.addEventListener('change',function(){qs[i]=b.checked;store.set('qs',qs);});
-  });
+  function toggle(btn,cls,key){
+    var on=get(key,false);
+    function apply(){btn.setAttribute('aria-pressed',on);body.classList.toggle(cls,on);
+      if(cls==='show-all') cards.forEach(function(c){c.querySelector('.ans').hidden=!on && !c.querySelector('.reveal').hidden;});}
+    btn.onclick=function(){on=!on;set(key,on);apply();};
+    apply();
+  }
+  toggle(document.getElementById('showAll'),'show-all','showAll');
+  toggle(document.getElementById('hideKnown'),'hide-known','hideKnown');
+  document.getElementById('resetBtn').onclick=function(){ if(confirm('לאפס את כל הסימונים?')){marks={};set('marks',marks);paint();} };
 
-  /* expand all */
-  var expanded=false, eb=document.getElementById('expandBtn');
-  eb.addEventListener('click',function(){
-    expanded=!expanded;
-    document.querySelectorAll('main details.deep').forEach(function(d){d.open=expanded;});
-    eb.textContent=expanded?'סגירת כל ההעמקות':'פתיחת כל ההעמקות';
-  });
-  window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.querySelectorAll('.qz').forEach(function(b){b.onclick=function(){b.classList.toggle('open');};});
 
-  /* mobile toc */
-  function closeToc(){document.body.classList.remove('toc-open');}
-  document.getElementById('tocBtn').addEventListener('click',function(){document.body.classList.toggle('toc-open');});
-  document.getElementById('scrim').addEventListener('click',closeToc);
-  document.querySelectorAll('#side a').forEach(function(a){a.addEventListener('click',closeToc);});
+  function closeToc(){body.classList.remove('toc-open');}
+  document.getElementById('tocBtn').onclick=function(){body.classList.toggle('toc-open');};
+  document.getElementById('scrim').onclick=closeToc;
+  document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',closeToc);});
 
-  /* scroll spy */
   var links={}; document.querySelectorAll('[data-toc]').forEach(function(a){links[a.dataset.toc]=a;});
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){
-          Object.keys(links).forEach(function(k){links[k].classList.remove('current');});
-          var l=links[e.target.id]; if(l){l.classList.add('current'); if(innerWidth>900) l.scrollIntoView({block:'nearest'});}
-        }
-      });
-    },{rootMargin:'-30% 0px -60% 0px'});
-    document.querySelectorAll('article.chapter').forEach(function(c){io.observe(c);});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){Object.keys(links).forEach(function(k){links[k].classList.remove('current');});
+        var l=links[e.target.id]; if(l) l.classList.add('current');}
+    });},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('section.part').forEach(function(s){io.observe(s);});
   }
-
-  /* 60-minute timer */
-  var segs=[].slice.call(document.querySelectorAll('.seg'));
-  var plan=segs.map(function(s){return +s.dataset.min;});
-  var total=plan.reduce(function(a,b){return a+b;},0)*60;
-  var tb=document.getElementById('timerBtn'), tr=document.getElementById('timerReset');
-  var ts=document.getElementById('timerStatus'), chip=document.getElementById('timerChip');
-  var st=store.get('timer',{start:null,paused:0,pausedAt:null}), iv=null;
-  function fmt(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
-  function elapsed(){ if(!st.start) return 0; var now=st.pausedAt||Date.now(); return (now-st.start-st.paused)/1000; }
-  function render(){
-    var e=elapsed(), acc=0, cur=-1;
-    segs.forEach(function(s,i){
-      var len=plan[i]*60, a=acc; acc+=len;
-      var f=st.start?Math.min(1,Math.max(0,(e-a)/len)):0;
-      s.style.setProperty('--fill',(f*100)+'%');
-      s.classList.toggle('past',st.start&&e>=acc);
-      var act=st.start&&e>=a&&e<acc; s.classList.toggle('active',act); if(act)cur=i;
-    });
-    if(!st.start){ts.textContent='';chip.classList.remove('on');tb.textContent='▶ התחלת המסלול';tr.hidden=true;return;}
-    tr.hidden=false; tb.textContent=st.pausedAt?'▶ המשך':'❚❚ השהיה';
-    var msg;
-    if(e>=total){msg='המסלול הסתיים 🎉';}
-    else{
-      var segEnd=plan.slice(0,cur+1).reduce(function(a,b){return a+b;},0)*60;
-      msg=segs[cur].querySelector('.seg-l').textContent+' · עוד '+fmt(segEnd-e)+' לקטע · '+fmt(total-e)+' בסך הכול';
-    }
-    ts.textContent=msg+(st.pausedAt?' (מושהה)':'');
-    chip.textContent=e>=total?'✓ 60′':(segs[cur]?segs[cur].querySelector('.seg-l').textContent+' · '+fmt(plan.slice(0,cur+1).reduce(function(a,b){return a+b;},0)*60-e):'');
-    chip.classList.add('on');
-  }
-  function loop(){clearInterval(iv); if(st.start&&!st.pausedAt) iv=setInterval(render,1000); render();}
-  tb.addEventListener('click',function(){
-    if(!st.start){st={start:Date.now(),paused:0,pausedAt:null};}
-    else if(st.pausedAt){st.paused+=Date.now()-st.pausedAt;st.pausedAt=null;}
-    else{st.pausedAt=Date.now();}
-    store.set('timer',st); loop();
-  });
-  tr.addEventListener('click',function(){st={start:null,paused:0,pausedAt:null};store.set('timer',st);loop();});
-  loop();
+  window.addEventListener('beforeprint',function(){cards.forEach(function(c){c.querySelector('.ans').hidden=false;});});
 })();
 </script>
 </body>
